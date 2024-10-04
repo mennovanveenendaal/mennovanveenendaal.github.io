@@ -1,7 +1,7 @@
 ---
 title: Old Routers, New Risks
 layout: post
-categories: Hardware hacking, investigating 
+categories: Hardware_hacking,investigating 
 image:
   path: /assets/old_router/router.png
   alt: Router
@@ -71,3 +71,6 @@ If you're selling or giving away your router, the new owner might not have malic
 _Fig.6 Reset button_
 
 To reset a router, most models (like the TP-Link WR841n) have a small reset button. This an be pressed using a paperclip or pin and needs to be hold for about 10 seconds. Once done, the router will reboot and revert to its original factory settings, including the default login credentials and factory-assigned wireless SSID and password.
+
+# Conclusion
+Resetting your router is not just about protecting your Wi-Fi password; it's about ensuring your personal or business data stays out of the hands of whoever comes next. Treat every device, no matter how small or seemingly insignificant, with the same care you would give to your computer or phone. After all, they all connect to the same network.

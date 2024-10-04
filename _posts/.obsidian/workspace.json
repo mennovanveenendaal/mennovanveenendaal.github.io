@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "2024-09-14-Building a website using Github pages.md",
+                "file": "2024-09-20-Old Routers, New Risks.md",
                 "mode": "source",
                 "source": true
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "2024-09-14-Building a website using Github pages.md",
+                "file": "2024-09-20-Old Routers, New Risks.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "2024-09-14-Building a website using Github pages.md",
+                "file": "2024-09-20-Old Routers, New Risks.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "2024-09-14-Building a website using Github pages.md"
+                "file": "2024-09-20-Old Routers, New Risks.md"
               }
             }
           }
@@ -148,10 +148,10 @@
   },
   "active": "3c8e89b4fa659868",
   "lastOpenFiles": [
+    "2024-09-14-Building a website using Github pages.md",
     "2024-10-06-Hâck The Hague 2024.md",
     "2024-09-29-Windows Registry 101, A Guide for Forensic Investigations.md",
     "2024-09-20-Old Routers, New Risks.md",
-    "2024-09-14-Building a website using Github pages.md",
     "2024-09-12-Avoiding Future VPN Disruptions; IP Monitoring with Python.md",
     "2024-08-29-Passed the eCDFP.md"
   ]
