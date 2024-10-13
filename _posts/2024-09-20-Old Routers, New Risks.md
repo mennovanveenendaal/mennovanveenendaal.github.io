@@ -1,9 +1,9 @@
 ---
 title: Old Routers, New Risks
 layout: post
-categories: Hardware_hacking,investigating 
+categories: [Hardware hacking, investigating] 
 image:
-  path: /assets/old_router/router.png
+  path: /assets/2024/old_router/router.png
   alt: Router
 ---
 [Recycling](https://www.epa.gov/recycle) is becoming more common, and consumers are increasingly encouraged to [resell](https://www.watismijnapparaatwaard.nl/verkopen) their old devices rather than throw them away. While selling old hardware might seem harmless, it can also pose unexpected risks. Unwiped routers, for example, can still contain sensitive information. In this article, I investigate a second-hand router to see if the data left on it could be useful to an investigator, or an attacker.
@@ -22,19 +22,19 @@ Since this router had already been powered down, I assumed any logs were wiped. 
 # Accessing the Router's GUI
 Once powered on, the router broadcasted a visible network:
 
-![SSID](/assets/old_router/SSID.png)
+![SSID](/assets/2024/old_router/SSID.png)
 _Fig.1 SSID_
 
 I tried connecting using the password on the back of the device, but it was incorrect. Knowing that LAN ports on routers like this are usually [insecure](https://www.kaspersky.com/blog/dangerous-ethernet-ports/31289/), I connected a LAN cable directly to the router. My laptop received an IP address of 192.168.0.100, and the router was assigned to 192.168.0.1.
 
 I accessed the router’s login page at  http://192.168.0.1.
 
-![login](/assets/old_router/login.png)
+![login](/assets/2024/old_router/login.png)
 _Fig.2 Login page_
 
 Before searching online for default credentials, I tried “admin/admin, and it worked!
 
-![gui](/assets/old_router/gui.png)
+![gui](/assets/2024/old_router/gui.png)
 _Fig.3 Inside the GUI_
 
 ## Further Investigation
@@ -47,7 +47,7 @@ And the GUI could also reveal the Wi-Fi password in plain text.
 ## Finding the Wi-Fi Password
 The Wi-Fi password had been changed. Under “Wireless Security” in the Wireless settings, I was able to find the current password for the wireless network:
 
-![password](/assets/old_router/password.png)
+![password](/assets/2024/old_router/password.png)
 _Fig.4 Password_
 
 # Investigating the Router’s Location
@@ -58,7 +58,7 @@ When purchasing a second-hand router at a private sellers home, you have a stron
 
 For this device I used [Wigle](https://wigle.net/) a website that tracks the location of wireless networks. By entering the router’s MAC address, I pinpointed the general location where the router had been used.
 
-![Wigle](/assets/old_router/wigle.png)
+![Wigle](/assets/2024/old_router/wigle.png)
 _Fig.5 Wigle GUI_
 
 With this information, an attacker could potentially locate the network and attempt to access it. Once connected, they could explore or attack other devices on the network.
@@ -67,7 +67,7 @@ With this information, an attacker could potentially locate the network and atte
 If you're selling or giving away your router, the new owner might not have malicious intentions, but it's better to be safe than sorry. A simple reset prevents them from accessing your old network details, saved passwords, or any other personal data that might still be stored.
 
 ## How to Properly Reset a Router
-![reset](/assets/old_router/reset.jpg)
+![reset](/assets/2024/old_router/reset.jpg)
 _Fig.6 Reset button_
 
 To reset a router, most models (like the TP-Link WR841n) have a small reset button. This an be pressed using a paperclip or pin and needs to be hold for about 10 seconds. Once done, the router will reboot and revert to its original factory settings, including the default login credentials and factory-assigned wireless SSID and password.

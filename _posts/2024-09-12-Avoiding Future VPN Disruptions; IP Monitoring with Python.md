@@ -1,10 +1,9 @@
 ---
 title: Avoiding Future VPN Disruptions; IP Monitoring with Python
 layout: post
-categories: scripting, python
+categories: [Scripting, Python]
 image:
-  path: /assets/vpn.png
-  alt: VPN
+  path: /assets/2024/vpn/vpn.png
 ---
 During my vacation, I ran into a frustrating issue: my VPN connection to my home server stopped working after an ISP outage. This was because my home’s WAN IP address had changed, which meant the VPN client couldn’t reconnect to my server anymore. Since I rely heavily on my home server for automation and other services, this was an issue I didn’t want to experience again. So, after some thought, I decided to write a script that would notify me whenever my WAN IP address changes.
 
@@ -262,7 +261,8 @@ WantedBy=default.target
 ```
 
 After another reboot, I checked again, and this time, the Telegram bot was running as expected, automatically starting with the system and happily messaging back in the Telegram chat.
-![telegram](/assets/telegram.png)
+![telegram](/assets/2024/vpn/telegram.png)
+_Fig.1 Telegram messages_
 
 # Finally
 With the service now running reliably at startup, my over-engineered solution was finally complete. The Telegram bot automatically monitors and responds to WAN IP requests, even after system reboots. No more wondering if I’ll lose access to my servers again due to ISP outages! All I have to do is message the bot with `/ip`, and it promptly delivers the updated IP address. A perfect blend of automation and control. And perhaps a little more than strictly necessary, but that's how I like it.

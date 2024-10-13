@@ -1,7 +1,7 @@
 ---
 title: "Building a website using Github pages"
 layout: post
-categories: website, Github
+categories: [Github Pages, Setup]
 ---
 Although I have some experience with building websites, I had never published one before. To streamline the process and minimize the time required to get a site live, I opted to use GitHub Pages and Jekyll. This combination allows for quick deployment of a static website, while keeping it simple and free.
 
@@ -21,7 +21,7 @@ To display anything on the website, an index file (either `.html` or `.md`) is r
 3. After creating the file, I added, committed, and pushed the changes to the GitHub repository using the following commands:
 ```shell
 git add --all
-git commit -m "Initial commit"
+git commit -m "<commit comment>"
 git push -u origin main
 ```
 

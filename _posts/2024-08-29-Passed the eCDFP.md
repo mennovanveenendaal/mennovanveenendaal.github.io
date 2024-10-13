@@ -1,10 +1,10 @@
 ---
 title: "Passed the eCDFP"
 layout: post
-categories: certificates, eCDFP
+categories: [Certificates, eCDFP]
 image:
-  path: /assets/eCDFP.png
-  alt: Logo_eCDFP
+  path: /assets/2024/eCDFP/eCDFP.png
+  alt: eCDFP
 ---
 My journey to passing the eCDFP exam.
 

@@ -1,10 +1,9 @@
 ---
 title: "Windows Registry 101: A Guide for Forensic Investigations"
 layout: post
-categories: Windows, Registry
+categories: [Windows, Registry]
 image:
-  path: /assets/registry.png
-  alt: Logo_eCDFP
+  path: /assets/2024/registry/registry.png
 ---
 Every Windows device has a **registry**, but what is its purpose? I delved deep into the Windows Registry to understand its structure and discover why it's crucial for investigators.
 
@@ -33,15 +32,15 @@ The information in the Windows Registry is stored in 5 Registry Hives (or root k
 
 HKEY stands for **Handle to Registry Key**. These hives (or HKEY) are the place where a specific set of settings is stored.
 
-![root_keys](/assets/root_keys.png)
+![root_keys](/assets/2024/registry/root_keys.png)
 
 Each hive contains keys, (like folders)
 
-![keys](/assets/keys.png)
+![keys](/assets/2024/registry/keys.png)
 
 These keys contain subkeys (and some subkeys have subkeys themself) that store settings in **values** (the actual data).
 
-![subkeys](/assets/subkeys.png)
+![subkeys](/assets/2024/registry/subkeys.png)
 
 Almost all Windows applications store their configuration data in the registry, though some portable applications may use separate files like `.xml` or `.ini` for this.
 
