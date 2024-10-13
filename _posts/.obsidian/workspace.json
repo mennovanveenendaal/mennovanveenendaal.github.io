@@ -20,18 +20,6 @@
             }
           },
           {
-            "id": "3895489cca6e0fb0",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "2024-10-29-Data exfiltration using GitHub.md",
-                "mode": "source",
-                "source": true
-              }
-            }
-          },
-          {
             "id": "b03cbbc9aa26441a",
             "type": "leaf",
             "state": {
@@ -55,8 +43,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -122,7 +109,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "2024-10-29-Data exfiltration using GitHub.md",
+                "file": "2024-09-14-Building a website using Github pages.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -139,7 +126,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "2024-10-29-Data exfiltration using GitHub.md",
+                "file": "2024-09-14-Building a website using Github pages.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -162,7 +149,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "2024-10-29-Data exfiltration using GitHub.md"
+                "file": "2024-09-14-Building a website using Github pages.md"
               }
             }
           }
@@ -183,11 +170,11 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "3895489cca6e0fb0",
+  "active": "3c8e89b4fa659868",
   "lastOpenFiles": [
+    "2024-10-29-Data exfiltration using GitHub.md",
     "2024-10-06-Hâck The Hague 2024.md",
     "2024-10-10-Setting up the Chirpy theme.md",
-    "2024-10-29-Data exfiltration using GitHub.md",
     "2024-09-14-Building a website using Github pages.md",
     "2024-09-29-Windows Registry 101, A Guide for Forensic Investigations.md",
     "2024-09-20-Old Routers, New Risks.md",
