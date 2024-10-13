@@ -63,7 +63,7 @@ Import this copy in FTK as evidence:
 `SYSTEM\CurrentControlSet\Control\TimeZoneInformation` 
 - TimeZoneKeyName: Pacific Standard Time
 - ActiveTimeBias: 420
-- DaylightName -211 == [Pacific Standard Time](http://www.nirsoft.net/dll_information/windows8/tzres_dll.html)
+- DaylightName -211 == [Pacific Standard Time](https://www.nirsoft.net/dll_information/windows8/tzres_dll.html)
 
 `SOFTWARE\Microsoft\Windows NT\CurrentVersion` 
 - ProductName: Windows 10 Home

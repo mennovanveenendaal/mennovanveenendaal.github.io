@@ -25,8 +25,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "2024-09-14-Building a website using Github pages.md",
-                "mode": "preview",
+                "file": "2024-10-30-Data exfiltration using GitHub.md",
+                "mode": "source",
                 "source": true
               }
             }
@@ -122,7 +122,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "2024-09-14-Building a website using Github pages.md",
+                "file": "2024-10-30-Data exfiltration using GitHub.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -139,7 +139,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "2024-09-14-Building a website using Github pages.md",
+                "file": "2024-10-30-Data exfiltration using GitHub.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -162,7 +162,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "2024-09-14-Building a website using Github pages.md"
+                "file": "2024-10-30-Data exfiltration using GitHub.md"
               }
             }
           }
@@ -185,9 +185,9 @@
   },
   "active": "3895489cca6e0fb0",
   "lastOpenFiles": [
+    "2024-09-14-Building a website using Github pages.md",
     "2024-10-10-Setting up the Chirpy theme.md",
     "2024-10-30-Data exfiltration using GitHub.md",
-    "2024-09-14-Building a website using Github pages.md",
     "2024-09-29-Windows Registry 101, A Guide for Forensic Investigations.md",
     "2024-09-20-Old Routers, New Risks.md",
     "2024-09-12-Avoiding Future VPN Disruptions; IP Monitoring with Python.md",
