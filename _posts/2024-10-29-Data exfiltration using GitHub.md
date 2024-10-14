@@ -1,7 +1,7 @@
 ---
 title: "Data exfiltration using GitHub"
 layout: post
-categories: categories: [Windows, Registry]
+categories: [Windows, Registry]
 image:
   path: /assets/2024/dataexfil/github.png
   alt: GitHub
