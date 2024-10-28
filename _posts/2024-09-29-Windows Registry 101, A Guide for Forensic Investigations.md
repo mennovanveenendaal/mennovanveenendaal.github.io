@@ -8,7 +8,7 @@ image:
 Every Windows device has a **registry**, but what is its purpose? I delved deep into the Windows Registry to understand its structure and discover why it's crucial for investigators.
 
 
-# Windows Registry
+## Windows Registry
 The Windows Registry [is](https://learn.microsoft.com/en-us/troubleshoot/windows-server/performance/windows-registry-advanced-users) "a central hierarchical database \[...] used to store information that is necessary to configure the system for one or more users, applications, and hardware devices". 
 
 Windows uses the registry to manage (to name a few):
@@ -21,7 +21,7 @@ Windows uses the registry to manage (to name a few):
 - Past network connections
 - Connected USB devices
 
-## Structure
+### Structure
 The information in the Windows Registry is stored in 5 Registry Hives (or root keys). 
 
 1. HKEY_CURRENT_USER
@@ -44,12 +44,12 @@ These keys contain subkeys (and some subkeys have subkeys themself) that store s
 
 Almost all Windows applications store their configuration data in the registry, though some portable applications may use separate files like `.xml` or `.ini` for this.
 
-## Where are the Hives stored?
+### Where are the Hives stored?
 Most of the Hives (except HKEY_CURRENT_USER) are located in the `%SystemRoot%\System32\Config` directory.
 
 The user related HKEY_CURRENT_USER is located in the user’s profile folder: `%SystemRoot%\Users\<Username>`
 
-## Root Key description
+### Root Key description
 
 | Root key                | Description                                                                                                                                   |
 | ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -59,14 +59,14 @@ The user related HKEY_CURRENT_USER is located in the user’s profile folder: `%
 | **HKEY_USERS**          | Contains information for all user profiles on the system.                                                                                     |
 | **HKEY_CURRENT_CONFIG** | Stores the hardware configuration used by the system when starting up.                                                                        |
 
-## Key Details
-### HKEY_CLASSES_ROOT
+### Key Details
+#### HKEY_CLASSES_ROOT
 The keys in this Hives are the different extensions used on the system containing a key with data for the Program that is used to open a file. Combines the user configuration in HKEY_CURRENT_USER\\Software and machine configuration in HKEY_LOCAL_MACHINE\\Software
 
-### HKEY_USERS
+#### HKEY_USERS
 Contains data for each user profile on the system.
 
-### HKEY_CURRENT_USER
+#### HKEY_CURRENT_USER
 Subkey of HKEY_USERS. **HKEY_USERS** contains the registry settings for **all** users, while **HKEY_CURRENT_USER** is a shortcut to the currently logged-in user’s settings.
 
 Stores the settings in the `NTUSER.DAT` file. This includes environment variables, screen settings, and recently accessed files. File is loaded during user login. 
@@ -77,7 +77,7 @@ Keys include (o.a.):
 - Environment (Path value)
 - System (System settings like the homedrive)
 
-### HKEY_LOCAL_MACHINE
+#### HKEY_LOCAL_MACHINE
 Contains 6 keys:
 - BCD
     - Boot configuration (replaces `boot.ini`).
@@ -92,10 +92,10 @@ Contains 6 keys:
 - SYSTEM
     - Contains system-level configurations for Windows.
 
-### HKEY_CURRENT_CONFIG
+#### HKEY_CURRENT_CONFIG
 Contains current system hardware and software settings.
 
-## Registry Data Types
+### Registry Data Types
 The data in the Registry is store in **values** (the actual data). These can have multiple types:
 
 | Name                    | Data type                      | Data type                                                                                           |
@@ -114,64 +114,64 @@ The data in the Registry is store in **values** (the actual data). These can hav
 | None                    | REG_NONE                       | Undefined or raw binary data types.                                                                 |
 | Link                    | REG_LINK                       | Symbolic link to other key. Used as shortcut to redirect registry operations to an other key.       |
 
-# Acquiring 
-## Using Tools for Acquisition
+## Acquiring 
+### Using Tools for Acquisition
 
 - [FTK Imager](https://www.exterro.com/digital-forensics-software/ftk-imager): A popular tool for acquiring forensic images of drives, including registry hives, without altering the original data.
 - [RegRipper](https://regripper.wordpress.com/): A tool designed for processing registry hives and generating reports, useful for automating analysis.
 - **Eric Zimmerman's [tools](https://ericzimmerman.github.io/#!index.md)**: Eric Zimmerman has developed several registry tools, including **Registry Explorer**, which allows investigators to view multiple registry hives simultaneously and create bookmarks for frequently used keys.
 
-## Manual Acquisition
+### Manual Acquisition
 - **regedit**: The built-in Windows Registry Editor (regedit) can be used to view and export registry hives or individual keys manually for analysis. Simply navigate to the key, right-click, and select 'Export' to save it for further investigation.
 
-# Forensic Importance of Registry Keys
+## Forensic Importance of Registry Keys
 The Windows Registry holds a wealth of forensic information, particularly in areas related to user behavior and system configuration. Some of the most important keys for forensic analysis include the following:
 
-## Windows Version and Owner Info
+### Windows Version and Owner Info
 `HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion`: This key contains details about the installed version of Windows, including the registered owner and the version of the OS.
 
-## Software Installations
+### Software Installations
 The `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall` key logs software installations, showing which programs were installed on the system, when, and by which account.
 
-## Time Zone Setting
+### Time Zone Setting
 `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\TimeZoneInformation`: Stores the system's time zone.
 
-## USB devices
+### USB devices
 `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Enum\USBSTOR`: Tracks connected USB storage devices, including device IDs, which can be useful for determining unauthorized data transfers or device connections.
 
-## Network connections and configurations
+### Network connections and configurations
 `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\Interfaces` stores details of past network connections. This can provide a lot of details when tracing a computer's network activity.
 
 The configuration for a network is found in `SYSTEM\CurrentControlSet\Service\Tcpip\Parameters\Interfaces\{GUID OF NETWORK}\`.
 
-## Autostart programs
+### Autostart programs
 The `Run` keys, often in `HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run`  show programs that automatically launch on startup. Whit this malware persistence mechanisms can be identified.
 
-## User activity
+### User activity
 Several registry keys store critical data on user behavior:
 
-### User Logons:
+#### User Logons:
 Logon events can be found under `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa` .
 
-### Recent files:
+#### Recent files:
 `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\RecentDocs` tracks recently accessed files.
 
-### Open/Save Dialog History:
+#### Open/Save Dialog History:
 `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\ComDlg32\OpenSavePidlMRU` logs files that have been opened or saved via the File Explorer dialog boxes.
 
-### Browsing:
+#### Browsing:
 For **Internet Explorer**, browsing history is stored under `HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\TypedURLs`.
 
 Chrome user data can be found at `HKEY_CURRENT_USER\Software\Google\Chrome\PreferenceMACs`.
 
-## Shares:
+### Shares:
 `HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\lanmanserver\Shares` contains information on folders shared over the network.
 
-## Remote Desktop (RDP) Connections:
+### Remote Desktop (RDP) Connections:
 The `HKEY_CURRENT_USER\Software\Microsoft\Terminal Server Client\Default` key holds information regarding recent RDP connections, including the IP addresses of remote systems accessed from the device.
 
-## ShellBags:
+### ShellBags:
 `HKEY_USERS\<SID>\Software\Microsoft\Windows\Shell\BagMRU`: Records folder views and settings, enabling the reconstruction of user activity and accessed folders, even if the folder has been deleted.
 
-# Conclusion
+## Conclusion
 The Windows Registry is an invaluable source of forensic evidence. By analyzing registry data, investigators can uncover user behavior, track connected devices and understand system configurations. Mastery of registry analysis is essential for digital forensics, as it provides a clear timeline of activity and crucial system events.

@@ -8,7 +8,7 @@ image:
 During my vacation, I ran into a frustrating issue: my VPN connection to my home server stopped working after an ISP outage. This was because my home’s WAN IP address had changed, which meant the VPN client couldn’t reconnect to my server anymore. Since I rely heavily on my home server for automation and other services, this was an issue I didn’t want to experience again. So, after some thought, I decided to write a script that would notify me whenever my WAN IP address changes.
 
 
-# Lost Connection: The Problem
+## Lost Connection: The Problem
 In our household, I’ve automated nearly everything, from lights and appliances to notifications and security. To manage all of these services, I run several servers in a hypervisor environment. Some servers handle my home automation apps, while others are used for testing purposes, like experimenting with networking, firewalls, and forensics. All of these servers are isolated from the internet and are only accessible via my local home network.
 
 To ensure I could monitor these systems remotely, I set up a VPN server that would allow me to connect to my home network securely while I was away. The VPN client on my phone connects via the WAN IP address, routing my connection back home.
@@ -19,7 +19,7 @@ A quick Google search confirmed that my ISP had an ongoing outage. After several
 
 Sure enough, when I got home, I found that my WAN IP address had changed, which explained why the VPN failed to connect. To prevent this from happening again, I decided to create a script that would notify me whenever my WAN IP changed. I could have used an external service like DuckDNS to manage dynamic IP addresses, but I wanted full control over the entire process. Plus, I wanted to try to script in Python, and this looked like a good purpose.
 
-# IP Monitoring: The Solution
+## IP Monitoring: The Solution
 First, I set up a headless Raspberry Pi to run the script. I found a simple Python [script](https://melanee-melanee.medium.com/monitor-your-public-ip-address-using-python-7956d18be9ec) that checked the WAN IP by sending a request to `https://api.ipify.org`. The script uses the `requests` module to fetch the current WAN IP:
 `WanIP.py`
 ```python
@@ -137,7 +137,7 @@ def main():
 if __name__ == "__main__": 
 ```
 
-## Automated Notifications via Telegram
+### Automated Notifications via Telegram
 
 The script uses the `python-telegram-bot` library to send notifications to my phone whenever the WAN IP address changes. This ensures that no matter where I am, I’ll be alerted if the IP address changes:
 `Telegram.py`
@@ -154,13 +154,13 @@ def send_telegram_message(message):
     asyncio.run(bot.send_message(chat_id, text=message))
 ```
 
-## Running the script
+### Running the script
 As this script doesn't need to run all the time, I used cron to run it every two hours as the local user. Al the logging is discarded.  
 ```bash
 0 */2 * * *  python3 /home/<USER>/IPmonitor/Main.py >/dev/null 2>&1
 ```
 
-# Overengineering with a Telegram Bot
+## Overengineering with a Telegram Bot
 In true overengineering fashion, I also created a Telegram bot used the [echobot example](https://docs.python-telegram-bot.org/en/v21.4/examples.echobot.html) from python-telegram-bot. This allows me to manually check the current WAN IP by sending a simple `/ip` message. Here’s how it works:
 ```python
 #!/usr/bin/env python
@@ -191,21 +191,21 @@ if __name__ == "__main__":
     main()
 ```
 
-## Running the Telegram-bot script as a service
+### Running the Telegram-bot script as a service
 To make the Telegram bot script run continuously and respond to requests, I needed to set it up as a systemd service. The idea was that the script should always be active and ready to notify me whenever I requested the current WAN IP address. After some research, I found a great [guide](https://github.com/thagrol/Guides/blob/main/boot.pdf) on running a program at startup. The relevant section for my setup was "Installing a Service Per User."
 
-### Enabling User Linger
+#### Enabling User Linger
 
 First things first, I needed to enable "linger" for my user account, allowing it to run background services even when the account wasn't actively logged in. This was a simple command:
 `sudo loginctl enable-linger <USER>`
 
 With that done, the local user account was permitted to keep services running persistently, even when logged out, as described in the [loginctl documentation](https://www.freedesktop.org/software/systemd/man/latest/loginctl.html#enable-linger%20USER%E2%80%A6).
 
-### Creating the .service Directory
+#### Creating the .service Directory
 Next, I created the directory to hold the service configuration files:
 `mkdir -p ~/.config/systemd/user`
 
-### Writing the .service File
+#### Writing the .service File
 The service itself is defined in a `.service` file. Here’s what I wrote to configure the systemd service:
 ```bash
 [Unit]
@@ -224,14 +224,14 @@ WantedBy=multi-user.target
 This file holds the information that systemd needs to [operate the service](https://www.digitalocean.com/community/tutorials/understanding-systemd-units-and-unit-files)  in different sections. 
 The `[Unit]` section specifies that the bot should start only after the network is fully online. This ensures the bot can communicate via Telegram from the moment the system boots. The `[Service]` section tells systemd to start the Python script that runs the bot, and to automatically restart it if it crashes. Finally, the `[Install]` section configures systemd to include this service in the boot process.
 
-### Deploying the Service
+#### Deploying the Service
 With the `.service` file ready, I copied it into the user-specific system directory:
 `$ cp telegrambot.service ~/.config/systemd/user/`
 
 Then, I needed to reload systemd’s internal state so it would recognize the new service:
 `$ systemctl --user daemon-reload`
 
-### Enabling and Starting the Service
+#### Enabling and Starting the Service
 Once reloaded, I enabled the service to start at boot, and then manually started it to test the setup:
 `$ systemctl --user enable telegrambot.service`
 `$ systemctl --user start telegrambot.service`
@@ -252,7 +252,7 @@ Jan 01 10:11:12 monitor python3[12346]: 2054-01-01 10:11:12,345 - telegram.ext.A
 ```
 Everything was looking good—my bot was running and waiting for commands!
 
-## The Multi-User Target Issue
+### The Multi-User Target Issue
 However, when I rebooted the Raspberry Pi, I realized the script wasn’t running as expected. After some troubleshooting, I [found](https://unix.stackexchange.com/questions/666509/systemd-service-does-not-start-wantedby-multi-user-target) that the `WantedBy=multi-user.target` line in the `.service` file was causing the issue. It turns out that services defined with `--user` don’t work with `multi-user.target` as they would for system-level services.
 
 ```
@@ -264,7 +264,7 @@ After another reboot, I checked again, and this time, the Telegram bot was runni
 ![telegram](/assets/2024/vpn/telegram.png)
 _Fig.1 Telegram messages_
 
-# Finally
+## Finally
 With the service now running reliably at startup, my over-engineered solution was finally complete. The Telegram bot automatically monitors and responds to WAN IP requests, even after system reboots. No more wondering if I’ll lose access to my servers again due to ISP outages! All I have to do is message the bot with `/ip`, and it promptly delivers the updated IP address. A perfect blend of automation and control. And perhaps a little more than strictly necessary, but that's how I like it.
 
-_Cover Photo by [Olha Ruskykh](https://www.pexels.com/@olha-ruskykh/)_
+_Cover Photo by [blog.jdriven.com](https://blog.jdriven.com/2024/10/.../)_
