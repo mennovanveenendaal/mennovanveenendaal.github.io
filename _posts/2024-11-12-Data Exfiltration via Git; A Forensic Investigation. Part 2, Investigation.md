@@ -13,10 +13,10 @@ In part 2, we’ll dive into investigating the data on a Windows 10 workstation 
 For this investigation I will focus on the data on the Windows 10 device itself, excluding other sources like network activity logs.
 
 The goal is to determine whether sensitive data had been sent from the device to GitHub using Git. The investigation revolves around key questions:
-- [Was Git installed on the device?](#was-git-installed)
-- [Was Git executed on the device?](#was-git-executed)
-- [Were there traces of data being sent to GitHub?](#was-data-sent-to-gitHub)
-- [If so, what data was sent,](#what-data-was-sent) [and to which repository?](#to-which-repository-was-data-sent)
+- [[#Was Git installed?|Was Git installed on this device?]]
+- [[#Was Git executed?|Was Git executed on this device?]]
+- [[#Was data sent to GitHub?|Are there traces of data being sent to GitHub?]]
+- [[#What data was sent?|If so, what data was sent,]] [[#To which repository was data sent?|and to which repository?]]
 
 I will use these questions as structure in this post.
 
