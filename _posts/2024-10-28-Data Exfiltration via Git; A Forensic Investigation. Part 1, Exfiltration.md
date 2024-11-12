@@ -69,4 +69,4 @@ _Fig.2 GitHub repository_
 ## Next Step: Investigating the Exfiltration (Part 2)
 After exfiltrating the data, I powered off the workstation. In Part 2 of this blog series, I will investigate the Windows 10 workstation to determine if data was sent to GitHub and what specific data was exfiltrated. By examining the disk images and log files, I’ll show how forensic analysis can uncover traces of these activities.
 
-_This post is also published on the [JDriven blog](https://blog.jdriven.com/2024/10/exfiltration/)_
+_This post is also published on [blog.jdriven.com](https://blog.jdriven.com/2024/10/exfiltration/)_
