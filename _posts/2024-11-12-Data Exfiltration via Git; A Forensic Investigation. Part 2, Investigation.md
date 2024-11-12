@@ -16,7 +16,7 @@ The goal is to determine whether sensitive data had been sent from the device to
 - [Was Git installed on the device?](#was-git-installed)
 - [Was Git executed on the device?](#was-git-executed)
 - [Were there traces of data being sent to GitHub?](#was-data-sent-to-gitHub)
-- [If so, what data was sent,](#what-data-was-sent-to-github) [and to which repository?](#to-which-repository-was-data-sent)
+- [If so, what data was sent,](#what-data-was-sent) [and to which repository?](#to-which-repository-was-data-sent)
 
 I will use these questions as structure in this post.
 
