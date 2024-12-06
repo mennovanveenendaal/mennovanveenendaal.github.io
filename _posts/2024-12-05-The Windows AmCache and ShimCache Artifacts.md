@@ -6,7 +6,7 @@ image:
   path: /assets/2024/amcache/amcache.png
   alt: AmCache and ShimCache
 ---
-In my previous article, I investigated whether sensitive data was exfiltrated using Git. During this investigation, I discovered that **AmCache** contained multiple entries indicating that the application `Git.exe` was executed on the system. In this article, we’ll explore two critical Windows artifacts, **AmCache** and **ShimCache**, which provide valuable forensic insights. 
+In my previous [article](https://www.mennovanveenendaal.com/posts/Data-Exfiltration-via-Git;-A-Forensic-Investigation.-Part-2,-Investigation/), I investigated whether sensitive data was exfiltrated using Git. During this investigation, I discovered that **AmCache** contained multiple entries indicating that the application `Git.exe` was executed on the system. In this article, we’ll explore two critical Windows artifacts, **AmCache** and **ShimCache**, which provide valuable forensic insights. 
 
 These artifacts can help determine if programs were executed on a system, where they were launched from, and when they were accessed. Understanding and analyzing these artifacts can be pivotal in uncovering malicious activity or reconstructing user behavior.
 
