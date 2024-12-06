@@ -18,7 +18,7 @@ The **AmCache** is a registry hive (`Amcache.hve`) in Windows used to track prog
 - The SHA1 hash of the program
 - Timestamps (e.g., installation and execution times)
 - File size
-- DLLs (Dynamic Link Libraries) used by the program ([What are DLLs?](https://learn.microsoft.com/en-us/troubleshoot/windows-client/setup-upgrade-and-drivers/dynamic-link-library))
+- [DLLs](https://learn.microsoft.com/en-us/troubleshoot/windows-client/setup-upgrade-and-drivers/dynamic-link-library) (Dynamic Link Libraries) used by the program.
 
 Windows uses this data to optimize program execution and load times.
 
@@ -30,7 +30,7 @@ The AmCache hive is stored at the following path: `C:\Windows\AppCompat\Programs
 _Fig.1 AmCache hive in FTK_
 
 ### Why Is AmCache Valuable for Forensic Investigations?
-The AmCache holds forensic value because it tracks important details about program execution, even if the program or file has been deleted from the system ([Microsoft IR Guide](https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/IR-Guidebook-Final.pdf)). Key details include:
+The AmCache holds forensic value because it tracks important details about program execution, even if the program or file has been [deleted from the system](https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/IR-Guidebook-Final.pdf). Key details include:
 
 - **Execution Tracking:** It logs when and where an application was executed, along with the full file path.
 - **SHA1 File Hashes:** These hashes can:
@@ -91,7 +91,7 @@ The ShimCache data is located in the SYSTEM hive:
 `SYSTEM\CurrentControlSet\Control\Session Manager\AppCompatCache`.
 
 ### ShimCache’s Forensic Value
-While the ShimCache provides valuable information about file presence, it has an important limitation:  **it does not confirm the [execution of the application**](https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/IR-Guidebook-Final.pdf). This is in contrast to AmCache, which logs execution events. ShimCache only indicates that an executable existed at some point on the system.
+While the ShimCache provides valuable information about file presence, it has an important limitation:  it does not confirm the [execution of the application](https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/IR-Guidebook-Final.pdf). This is in contrast to AmCache, which logs execution events. ShimCache only indicates that an executable existed at some point on the system.
 
 The ShimCache can corroborate findings from other artifacts like Prefetch files, Event Logs, or network logs, providing a more complete view of system activity.
 
