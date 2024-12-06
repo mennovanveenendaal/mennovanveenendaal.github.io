@@ -205,7 +205,7 @@ Date:   Fri DATE
 ```
 As shown here, 169 files changed. The repository contained 198 files, this difference could be due to .gitignore file excluding files from uploading.
 
-To see the data sent during the commits I used the `git show` [command](https://git-scm.com/docs/user-manual.html#understanding-commits, and stored the results in a text file:
+To see the data sent during the commits I used the `git show` [command](https://git-scm.com/docs/user-manual.html#understanding-commits), and stored the results in a text file using `>`:
 ```shell
 > git show > ../git_show.txt 2>&1
 > cd ..
@@ -262,6 +262,6 @@ To prevent similar incidents, companies can implement the following strategies:
 - **Enforcing least privilege access** to prevent unauthorized installations of software like Git.
 
 
-
+_This post is also published on [blog.jdriven.com](https://blog.jdriven.com/2024/11/investigation/)_
 
 
