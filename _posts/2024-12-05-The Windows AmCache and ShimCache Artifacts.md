@@ -6,13 +6,13 @@ image:
   path: /assets/2024/amcache/amcache.png
   alt: AmCache and ShimCache
 ---
-In my previous [article](https://www.mennovanveenendaal.com/posts/Data-Exfiltration-via-Git;-A-Forensic-Investigation.-Part-2,-Investigation/), I investigated whether sensitive data was exfiltrated using Git. During this investigation, I discovered that **AmCache** contained multiple entries indicating that the application `Git.exe` was executed on the system. In this article, we’ll explore two critical Windows artifacts, **AmCache** and **ShimCache**, which provide valuable forensic insights. 
+In my previous [article](https://www.mennovanveenendaal.com/posts/Data-Exfiltration-via-Git;-A-Forensic-Investigation.-Part-2,-Investigation/), I investigated whether sensitive data was exfiltrated using Git. During this investigation, I discovered that **AmCache** contained multiple entries indicating that the application `Git.exe` was present on the system. In this article, we’ll explore two critical Windows artifacts, **AmCache** and **ShimCache**, which provide valuable forensic insights. 
 
-These artifacts can help determine if programs were executed on a system, where they were launched from, and when they were accessed. Understanding and analyzing these artifacts can be pivotal in uncovering malicious activity or reconstructing user behavior.
+These artifacts can help determine if programs were installed on a system, where they were launched located, and when they were accessed. Understanding and analyzing these artifacts can be helpful in uncovering malicious activity or reconstructing user behavior.
 
 
 ## What Is AmCache?
-The **AmCache** is a registry hive (`Amcache.hve`) in Windows used to track programs that are installed or executed on a system. It contains detailed metadata, such as:
+The **AmCache** is a registry hive (`Amcache.hve`) in Windows used to track loaded drivers, applications that are installed and programs that are present **or** executed [on a system](https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/IR-Guidebook-Final.pdf).. It contains detailed metadata, such as:
 
 - The full path of the executable
 - The SHA1 hash of the program
@@ -20,7 +20,7 @@ The **AmCache** is a registry hive (`Amcache.hve`) in Windows used to track prog
 - File size
 - [DLLs](https://learn.microsoft.com/en-us/troubleshoot/windows-client/setup-upgrade-and-drivers/dynamic-link-library) (Dynamic Link Libraries) used by the program.
 
-Windows uses this data to optimize program execution and load times.
+Windows uses this data to optimize program execution and load times. 
 
 ### Where Is AmCache Located?
 
@@ -30,12 +30,15 @@ The AmCache hive is stored at the following path: `C:\Windows\AppCompat\Programs
 _Fig.1 AmCache hive in FTK_
 
 ### Why Is AmCache Valuable for Forensic Investigations?
-The AmCache holds forensic value because it tracks important details about program execution, even if the program or file has been [deleted from the system](https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/IR-Guidebook-Final.pdf). Key details include:
+The AmCache holds forensic value because it tracks important details about a program, even if the program or file has been [deleted from the system](https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/IR-Guidebook-Final.pdf).
+Key details include:
 
 - **Execution Tracking:** It logs when and where an application was executed, along with the full file path.
 - **SHA1 File Hashes:** These hashes can:
     - **Verify file integrity:** If the current file hash differs from the hash in AmCache, it may indicate the file was modified (potentially maliciously) after its first execution.
     - **Identify unknown or malicious files:** Hashes can be cross-referenced with threat intelligence databases to flag suspicious programs and identify potential indicators of compromise.
+
+Important to notice is that the Amcache on its own cannot be used to 100% prove the execution of a program. The timestamps in the Amcache could be the timestamp when the application was by [Windows](https://www.thedfirspot.com/post/evidence-of-program-existence-amcache).
 
 ## Tools for Parsing AmCache Data
 ### 1. Registry Explorer
@@ -128,7 +131,7 @@ volatility -f dump.mem --profile= shimcachemem
 ```
 
 ## Conslusion
-The AmCache and ShimCache are a great source for finding indications of program presence and execution. While AmCache confirms execution and provides hashes for integrity checks, ShimCache is useful for identifying files present on a system. Combined, these artifacts give information regarding system activity and can be useful in malware investigations or user activity analysis.
+The AmCache and ShimCache are a great source for finding **indications** of program presence and execution. AmCache provides details regarding installed applications and programs like hashes for integrity checks. ShimCache is useful for identifying files present on a system. Combined, these artifacts give information regarding system activity and can be useful in malware investigations or user activity analysis.
 
 However, Forensic analysis should never rely solely on AmCache or ShimCache. To build a robust timeline or confirm execution, investigators should cross-reference these artifacts with:
 
