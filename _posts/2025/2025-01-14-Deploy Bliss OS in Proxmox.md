@@ -44,7 +44,7 @@ The settings that worked for me where
 _Fig.4 Disks_
 
 ### CPU
-![CPU](/assets/2025/proxmox/CPU.png)
+![CPU](/assets/2025/proxmox/cpu.png)
 _Fig.5 CPU_
 
 ### Memory
