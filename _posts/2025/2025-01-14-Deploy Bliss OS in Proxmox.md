@@ -116,3 +116,9 @@ _Fig.18 BlissOS_
 To enable the Play Store, activate it within BlissOS. For verification, I used a prepaid SIM card to obtain the activation code.
 
 This setup within Proxmox provides a versatile, isolated environment for Android app testing and exploration. Check out the [BlissOS website](https://blissos.org/) for more details!
+
+## Taskbar
+While working in BlissOS via the Console, I found that some applications rotate the view, leaving them unable to control. To fix this I adjusted the Taskbar settings by going into Settings -> Apps -> Default apps -> Home app. There I selected Taskbar  for Bliss OS. 
+
+![taskbar](/assets/2025/proxmox/taskbar.png)
+_Fig.19 Select Taskbar for Bliss OS_
