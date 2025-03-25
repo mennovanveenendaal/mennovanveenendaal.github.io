@@ -1,4 +1,4 @@
-s---
+---
 title: "Fixing the Z-Wave crash"
 layout: post
 categories: [Home Automation, Z-Wave]
