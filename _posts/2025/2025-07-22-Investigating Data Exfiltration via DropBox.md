@@ -155,7 +155,7 @@ In the MFT records I filtered on the `secret_code` folder name, and found multip
 
 ## Was data uploaded to Dropbox?
 ### Hindsight
-Looking at the Edge browser data [figure 3](\#\#Edge\ Browser) there was a `sessions` folder. In the mounted image there was much more stored information from Egde.
+Looking at the Edge browser data [figure 3](#was-dropbox-visited) there was a `sessions` folder. In the mounted image there was much more stored information from Egde.
 
 Using [Hindsight](https://github.com/obsidianforensics/hindsight) I loaded the data from `Users\IEUser\AppData\Local\Microsoft\Edge\User Data\Default`. I exported the results to a sql database, and used DB Browser to view the data. The timeline table contained the entries that showed the dropbox URL:
 
