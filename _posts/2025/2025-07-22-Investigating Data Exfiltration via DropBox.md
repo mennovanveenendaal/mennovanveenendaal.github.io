@@ -24,7 +24,7 @@ The main questions I tried to answer were:
 - [Was Dropbox installed on the device?](#was-dropbox-installed)
 - [Was the Dropbox website visited from this device?](#was-dropbox-visited)
 - [Are there traces of data being sent to DroBox?](#was-data-uploaded-to-dropbox)
-- [If data was send, what data was sent,](#what-data-was-uploaded-to-dropbox)
+- [If data was send, what data was sent?](#what-data-was-uploaded-to-dropbox)
 
 ## Workstation setup 
 To simulate this scenario, I used a Windows 10 Enterprise 21H2 virtual machine. I created a folder named `secret_code` and downloaded the [Chirpy theme ZIP file](https://www.mennovanveenendaal.com/posts/Setting-up-the-Chirpy-theme/) to serve as sensitive content. The unzipped folder contained:
