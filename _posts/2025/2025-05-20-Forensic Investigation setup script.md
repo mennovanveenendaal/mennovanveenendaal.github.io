@@ -31,6 +31,11 @@ set /p disk="Enter Disk containing evidence: "
 :: Create folder tree
 echo Creating folder tree
 MkDir "C:\Cases\%investigation%\Analysis\"
+MkDir "C:\Cases\%investigation%\Analysis\User_Activities\"
+MkDir "C:\Cases\%investigation%\Analysis\User_Activities\Cache\"
+MkDir "C:\Cases\%investigation%\Analysis\User_Activities\Link_Files\"
+MkDir "C:\Cases\%investigation%\Analysis\User_Activities\Jump_Lists\"
+MkDir "C:\Cases\%investigation%\Analysis\Host_Information\"
 MkDir "C:\Cases\%investigation%\Analysis\EventLogs\"
 MkDir "C:\Cases\%investigation%\Analysis\Execution\"
 MkDir "C:\Cases\%investigation%\Analysis\Execution\Amcache\"
@@ -57,8 +62,6 @@ echo Copy registry hives
 xcopy "C:\Cases\%investigation%\Kape\%disk%\Windows\System32\config\" "C:\Cases\%investigation%\Analysis\Registry\" /H
 
 :: Show Users on disk
-echo :
-echo :
 cd /d "%disk%:\Users\"
 dir /b /o:n /ad-h
 set /p useraccount="Name of user account in evidence: "
@@ -76,10 +79,26 @@ attrib -h UsrClass.dat
 attrib -h NTUSER.dat
 for /r %%i in (*) do (C:\Tools\RegRipper3.0-master\rip.exe -r %%i -a > %%i.txt)
 
+:: Acquire device information
+cd "C:\Cases\%investigation%\Analysis\Registry\"
+:: Hostname
+C:\Tools\RegRipper3.0-master\rip.exe -r "SYSTEM" -p compname | findstr "ComputerName\ \ \ \ =" | findstr "ComputerName" > "C:\Cases\%investigation%\Analysis\Host_Information\Hostname.txt"
+:: Windows version
+C:\Tools\RegRipper3.0-master\rip.exe -r "SOFTWARE" -p winver > "C:\Cases\%investigation%\Analysis\Host_Information\WindowsVersion.txt"
+:: Defender options
+C:\Tools\RegRipper3.0-master\rip.exe -r "SOFTWARE" -p defender > "C:\Cases\%investigation%\Analysis\Host_Information\DefenderSettings.txt"
+:: Timezone
+C:\Tools\RegRipper3.0-master\rip.exe -r "SYSTEM" -p timezone > "C:\Cases\%investigation%\Analysis\Host_Information\Timezone.txt"
+:: Profile List
+C:\Tools\RegRipper3.0-master\rip.exe -r "SOFTWARE" -p profilelist > "C:\Cases\%investigation%\Analysis\Host_Information\Profilelist.txt"
+:: Network Information
+C:\Tools\RegRipper3.0-master\rip.exe -r "SYSTEM" -p nic2 > "C:\Cases\%investigation%\Analysis\Host_Information\NetworkInformation.txt"
+
 :: MFTECmd
-echo Run MFTECmd
+echo Run MFTECmd to parse MasterFileTable
 cd "C:\Tools\EZTools\"
 MFTECmd.exe -f "C:\Cases\%investigation%\Kape\%disk%\$MFT" --csv "C:\Cases\%investigation%\Analysis\NTFS\MFT" --csvf MFT.csv
+echo Run MFTECmd to parse Journal
 MFTECmd.exe -f "C:\Cases\%investigation%\Kape\%disk%\$Extend\$J" -m "C:\Cases\%investigation%\Kape\%disk%\$MFT" --csv "C:\Cases\%investigation%\Analysis\NTFS"
 
 :: AppCompatCacheParser
@@ -99,6 +118,21 @@ echo Run EvtxECmd
 cd "C:\Tools\EZTools\EvtxeCmd"
 EvtxECmd.exe -d "C:\Cases\%investigation%\Kape\%disk%\Windows\System32\winevt\logs" --csv "C:\Cases\%investigation%\Analysis\EventLogs"
 
+::WxTCmd
+echo Run WxTCmd to parse ActivitiesCache
+cd "C:\Tools\EZTools"
+WxTCmd.exe -f "C:\Cases\%investigation%\Kape\%disk%\Users\%useraccount%\AppData\Local\ConnectedDevicesPlatform\L.%useraccount%\ActivitiesCache.db" --csv "C:\Cases\%investigation%\Analysis\User_Activities\Cache"
+
+:: LECmd
+echo Run LECmd to parse Link files
+cd "C:\Tools\EZTools"
+LECmd.exe -d "C:\Cases\%investigation%\Kape\%disk%\Users\%useraccount%\AppData\Roaming\Microsoft\Windows\Recent" --csv "C:\Cases\%investigation%\Analysis\User_Activities\Link_Files"
+
+:: JLECmd
+echo Run JLECmd to parse Jump lists
+cd "C:\Tools\EZTools"
+JLECmd.exe -d "C:\Cases\%investigation%\Kape\%disk%\Users\%useraccount%\AppData\Roaming\Microsoft\Windows\Recent" --csv "C:\Cases\%investigation%\Analysis\User_Activities\Jump_Lists"
+
 echo Done!
 set /p=Hit ENTER to continue...
 timeout 5 > NUL
@@ -108,3 +142,5 @@ timeout 5 > NUL
 While this batch script does the job well, I plan to convert it to PowerShell for better readability and control. I would also like to automate the image mounting for a fully automated workflow.
 
 This script saves time before the triage and ensures consistency across forensic investigations. If you regularly analyze Windows disk images, a setup like this can significantly speed up your initial evidence collection.
+
+Edit: Extended script to o.a. also acquire device information using RegRipper.
