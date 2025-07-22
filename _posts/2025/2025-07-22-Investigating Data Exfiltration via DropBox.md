@@ -35,10 +35,10 @@ To simulate this scenario, I used a Windows 10 Enterprise 21H2 virtual machine. 
 I then uploaded the folder `secret_code` to a newly created Dropbox directory via drag-and-drop in a browser.
 
 At this point, the data was successfully exfiltrated to Dropbox.
-![Dropbox](/assets/2025\cloud_data_exfil/upload.png)
+![Dropbox](/assets/2025/cloud_data_exfil/upload.png)
 _Fig.1 Dropbox upload_
 
-![Code in Dropbox](/assets/2025\cloud_data_exfil/code_in_dropbox.png)
+![Code in Dropbox](/assets/2025/cloud_data_exfil/code_in_dropbox.png)
 _Fig.2 Code in Dropbox_
 
 ## Data acquisition
@@ -92,12 +92,12 @@ Registry analysis showed only Internet Explorer and Edge were installed. Interne
 ## Was Dropbox visited? 
 The directory `Users\IEUser\AppData\Local\Microsoft\Edge\User Data\Default` contained Edge browser history.
 
-![Edge browser data](/assets/2025\cloud_data_exfil/Edge_Browser_data.png)
+![Edge browser data](/assets/2025/cloud_data_exfil/Edge_Browser_data.png)
 _Fig.3 Edge browser data_
 
 Using **DB Browser for SQLite**, I confirmed the URL `https://www.dropbox.com/home/test_upload/secret_code` was accessed. However, it did not indicate whether files were uploaded.
 
-![urls](/assets/2025\cloud_data_exfil/visited_urls.png)
+![urls](/assets/2025/cloud_data_exfil/visited_urls.png)
 _Fig.4 Edge urls_
 
 The timestamp 13386081378482240 and 13386083022649117 translated to:
@@ -106,7 +106,7 @@ The timestamp 13386081378482240 and 13386083022649117 translated to:
 ```
 These match the earlier timestamps.
 
-![urls](/assets/2025\cloud_data_exfil/epoch.png)
+![urls](/assets/2025/cloud_data_exfil/epoch.png)
 _Fig.5 Time Stamp_
 
 ## File Interaction Evidence
@@ -142,16 +142,16 @@ LastWrite Time: 2025-03-10 11:56:33Z
 ### ComDlg32
 `NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\ComDlg32` showed Edge opened the folder `Local Documents\secret_code` on 10 March 2025 at 11:56:33 UTC.
 
-![LastVisitedPidMRU](/assets/2025\cloud_data_exfil/LastVisitedPidMRU.png)
+![LastVisitedPidMRU](/assets/2025/cloud_data_exfil/LastVisitedPidMRU.png)
 _Fig.6 Time Stamp_
 
 ### ActivitiesCache.db
 In the ActivitiesCache Database I could see the application that was in focus. Around 2025-03-10 11:53:43 UTC the Edge browser was.
-![ActivitiesCacheDB](/assets/2025\cloud_data_exfil/ActivitiesCacheDB.png)
+![ActivitiesCacheDB](/assets/2025/cloud_data_exfil/ActivitiesCacheDB.png)
 
 ### MFT
 In the MFT records I filtered on the `secret_code` folder name, and found multiple enties for documents and folder. This confirmed that these where present. However, I coudn't determine the files that where actually uploaded.
-![MFT](/assets/2025\cloud_data_exfil/MFT.png)
+![MFT](/assets/2025/cloud_data_exfil/MFT.png)
 
 ## Was data uploaded to Dropbox?
 ### Hindsight
@@ -159,18 +159,18 @@ Looking at the Edge browser data [figure 3](\#\#Edge\ Browser) there was a `sess
 
 Using [Hindsight](https://github.com/obsidianforensics/hindsight) I loaded the data from `Users\IEUser\AppData\Local\Microsoft\Edge\User Data\Default`. I exported the results to a sql database, and used DB Browser to view the data. The timeline table contained the entries that showed the dropbox URL:
 
-![Hindsight](/assets/2025\cloud_data_exfil/hindsight_2.png)
+![Hindsight](/assets/2025/cloud_data_exfil/hindsight_2.png)
 _Fig.7 Dropbox URL's in Hindsight_
 
 This showed the same data from the Edge history file, in a more ordenend way. `https://www.dropbox.com/home/test_upload/secret_code`. The timeline also showed the creation of the `test_upload` folder:
 
-![Hindsight](/assets/2025\cloud_data_exfil/hindsight.png)
+![Hindsight](/assets/2025/cloud_data_exfil/hindsight.png)
 _Fig.8 Created folder_
 
 ### What data was uploaded to Dropbox?
 In the storage table I found session storage data.
 
-![Hindsight](/assets/2025\cloud_data_exfil/session_storage.png)
+![Hindsight](/assets/2025/cloud_data_exfil/session_storage.png)
 _Fig.9 Session Storage folder_
 
 I filtered on `upload`, and found a upload event for 215 files:
@@ -194,7 +194,7 @@ The details in this:
 - `file_name` = `archives.html`
 - `session_uploader` = `default_drag_and_drop`
 
-![Hindsight](/assets/2025\cloud_data_exfil/hindsight_upload.png)
+![Hindsight](/assets/2025/cloud_data_exfil/hindsight_upload.png)
 _Fig.10 Data upload_
 
 And following this, there where 528 more enties with the same information:
