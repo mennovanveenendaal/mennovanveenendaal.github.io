@@ -2,6 +2,7 @@
 title: "Useless Surpise"
 layout: post
 categories: [Microcontroller, Building]
+description: 
 image:
   path: /assets/2025/uselessbox/box.jpg
   alt: Useless Surpise

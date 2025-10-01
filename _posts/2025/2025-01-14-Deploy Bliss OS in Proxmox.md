@@ -2,6 +2,7 @@
 title: "Deploy Bliss OS in Proxmox"
 layout: post
 categories: [Proxmox, BlissOS]
+description: Deploying a BlissOS VM in Proxmox
 image:
   path: /assets/2025/proxmox/blissos.png
   alt: Bliss OS

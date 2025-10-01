@@ -2,6 +2,7 @@
 title: "Automating Self-reflection"
 layout: post
 categories: [Home Automation, Self-reflection]
+description: Automating Self-reflection using Home Assistant 
 image:
   path: /assets/2025/reflection/reflection.png
   alt: Self-reflection

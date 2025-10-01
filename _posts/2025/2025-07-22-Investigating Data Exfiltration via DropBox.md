@@ -2,6 +2,7 @@
 title: "Investigating Data Exfiltration via Dropbox"
 layout: post
 categories: [Windows, Registry]
+description: Investigating Data Exfiltration via the browser and Dropbox
 image:
   path: /assets/2025/cloud_data_exfil/Dropbox.png
   alt: exfiltration
