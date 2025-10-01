@@ -42,7 +42,7 @@ The PWFA exam itself is also scenario-based and very practical. The objective is
 
 The exam felt like a natural step up from the investigation scenarios. Using the same methodology, I examined the artifacts, documented findings, and gradually built a clear picture of the case.
 
-While working through the evidence, the narrative of the scenario became apparent and shaped the direction of my final report.
+While working through the evidence, the narrative of the scenario became apparent and shaped the direction of my final report. The exam was challenging and highly practical experience. It was a great opportunity to apply my gained knowledge in a real-world setting and further strengthen my skills.
 
 ## The Result
 
