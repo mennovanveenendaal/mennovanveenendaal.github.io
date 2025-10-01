@@ -10,7 +10,7 @@ image:
 The Practical Windows Forensic Analyst (PWFA) is a performance-based exam designed to validate skills in Windows digital forensics and investigation.
 
 ## Training: Practical Windows Forensics
-To prepare for the PWFA, Blue Cape offers the [Practical Windows Forensics course]([https://bluecapesecurity.com/courses/practical-windows-forensics-labs/](https://bluecapesecurity.com/courses/practical-windows-forensics-labs/)). This self-paced training consists of 18 explanatory modules and 52 practical labs. Together they provide both theoretical knowledge and hands-on practice for investigating and analyzing Windows-based attacks and intrusions.
+To prepare for the PWFA, Blue Cape offers the [Practical Windows Forensics course](https://bluecapesecurity.com/courses/practical-windows-forensics-labs/). This self-paced training consists of 18 explanatory modules and 52 practical labs. Together they provide both theoretical knowledge and hands-on practice for investigating and analyzing Windows-based attacks and intrusions.
 
 The topics include:
 
