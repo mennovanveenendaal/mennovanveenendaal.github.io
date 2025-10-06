@@ -42,7 +42,7 @@ The PWFA exam itself is also scenario-based and very practical. The objective is
 
 The exam felt like a natural step up from the investigation scenarios. Using the same methodology, I examined the artifacts, documented findings, and gradually built a clear picture of the case.
 
-While working through the evidence, the narrative of the scenario became apparent and shaped the direction of my final report. The exam was challenging and highly practical experience. It was a great opportunity to apply my gained knowledge in a real-world setting and further strengthen my skills.
+While working through the evidence, the narrative of the scenario became apparent and shaped the direction of my final report. The exam was challenging and highly practical experience. It was a great opportunity to apply my gained knowledge in a real-world setting and further strengthen my skills.
 
 ## The Result
 
@@ -52,8 +52,8 @@ After submitting my report, I received my results within a week. I’m proud to 
 
 I thoroughly enjoyed the training, scenarios, and exam. The investigative process felt like solving puzzles, following trails of evidence, and piecing them together to prove or disprove hypotheses.
 
-The only improvement I would suggest is to also receive feedback alongside the score. Knowing where points were lost would help identify specific gaps and further strengthen skills. After reaching out by email, I did receive detailed feedback on both my analysis and my report within 24 hours, which was very helpful.
+The only improvement I would suggest is to also receive feedback alongside the score. Knowing where points were lost would help identify specific gaps and further strengthen skills. After reaching out by email, I did receive very detailed feedback on both my analysis and my report within 24 hours, which was very helpful.
 
-One small challenge was that the VM provided for the exam ran somewhat slowly when handling large disk images on more complex tasks. Looking back, I realize that I did not need to perform those heavier processes, but it was a noticeable limitation during the experience.
+One small challenge was that the VM provided for the exam ran somewhat slowly when handling large disk images on more complex tasks. Looking back however, I realize that I did not need to perform those heavier processes.
 
 ![PWFA](/assets/2025/PWFA/certificate.png)
