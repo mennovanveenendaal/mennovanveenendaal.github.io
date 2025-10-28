@@ -85,7 +85,6 @@ Then a "WIFICLOUDSYNC" process began, and the first reference to _BrandNewNetwor
 ```
 2025-10-04 14:14:27.440584+0200 0x1d64     Default     0x0                  54     0    wifid: (WiFiCloudSyncEngine) [WIFICLOUDSYNC] __WiFiCloudSyncEngineCheckWaitingForPasswordList (WiFiCloudSyncEngine.m:2651)removed network from waiting for password sync list
 2025-10-04 14:14:27.440597+0200 0x1d64     Default     0x0                  54     0    wifid: (WiFiCloudSyncEngine) [WIFICLOUDSYNC] __WiFiCloudSyncEngineCheckWaitingForPasswordList (WiFiCloudSyncEngine.m:2614)3 networks waiting for password sync, currently at 2
-
 2025-10-04 14:14:27.440685+0200 0x1d66     Default     0x0                  54     0    wifid: (WiFiPolicy) [com.apple.WiFiPolicy:] WiFiNetworkSyncHelperCreateNetworkRef for <BrandNewNetwork>
 ```
 
