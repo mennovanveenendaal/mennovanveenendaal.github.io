@@ -1,0 +1,17 @@
+---
+---
+
+/* prettier-ignore */
+@use 'main
+{%- if jekyll.environment == 'production' -%}
+  .bundle
+{%- endif -%}
+';
+
+/* append your custom style below */
+$max-lines: 10; // max lines of code to be scrolled
+
+.highlight {
+    overflow-y: auto;
+    max-height: $max-lines * 1em;
+}
