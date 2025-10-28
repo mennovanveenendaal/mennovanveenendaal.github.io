@@ -35,7 +35,7 @@ When I checked the list of known networks on the iPhone 12, "BrandNewNetwork" wa
 ## SSID in iLEAPP
 To see how the Wi-Fi network appeared on the iPhone 12, I generated and captured the sysdiagnose of the iPhone 12 [UFADE](https://github.com/prosch88/UFADE) and processed it with [iLEAPP](https://github.com/abrignoni/iLEAPP). Although iLEAPP does not officially support iOS 26, it successfully parsed the wireless network data.s (amongst other data).
 
-![iLEAPP](/assets/2024/dataexfil/iLEAPP_0410.png)
+![iLEAPP](/assets/2025/iPhone_wifi/iLEAPP_0410.png)
 _Fig.1 iLEAPP WiFi networks_
 
 The *BrandNewNetwork* appeared in the Wi-Fi networks list, showing the "Added at" timestamp (UTC) of the the iPhone 13 connectiong in the [test](#testing)(UTC+2). The *MAC Generation Time* matched the time I powered on the iPhone 12.
