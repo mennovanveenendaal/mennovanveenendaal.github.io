@@ -1,5 +1,5 @@
 ---
-title: "Building a "
+title: "Connecting Old Phones"
 layout: post
 categories: [Proxmox, Building]
 image:
