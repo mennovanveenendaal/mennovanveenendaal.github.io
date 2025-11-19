@@ -2,7 +2,7 @@
 title: "iPhone Wi-Fi Scanning"
 layout: post
 categories: [iOS, wifi]
-description: iPhone is silently recording nearby Wi-Fi information
+description: iPhone's are silently recording nearby Wi-Fi information
 image:
   path: /assets/2025/iPhone_wifi_2/wifi.png
   alt: iPhone wifi
