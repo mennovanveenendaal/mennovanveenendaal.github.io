@@ -153,7 +153,7 @@ I could not confirm whether the iPhone 12 on iOS 26.0.1 also produced wifi-buf l
 Logical backups, PRFS backups, sysdiagnose captures and crash reports did not include these files.
 
 ### Historical data
-To determine the first appearance of the `[corewifi] AUTO-JOIN: -- <redacted> - ssid=<redacted>`scan log, I extracted the full Apple Unified Logs on 19 November around 10:30 AM. The earliest entry in the UAL was from 3 November, but the first clear scan result appeared on 18 November at 07:19 AM.
+To determine the first appearance of the `[corewifi] AUTO-JOIN: -- <redacted> - ssid=<redacted>`scan log, I extracted the full Apple Unified Logs on 19 November around 10:30 AM. The earliest entry in the AUL was from 3 November, but the first clear scan result appeared on 18 November at 07:19 AM.
 
 ```
 2025-11-18 07:19:17.333381+0100 0x4a5f     Default     0x0                  53     0    wifid: (CoreWiFi) [com.apple.WiFiManager:] [corewifi] AUTO-JOIN: Scan SUCCEEDED (duration=144ms, results=20, error=((null)), liveCount=2, cacheOnly=0, maxCacheAge=20000)
