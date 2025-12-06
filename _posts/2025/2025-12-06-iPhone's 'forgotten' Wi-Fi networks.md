@@ -127,5 +127,5 @@ RemovedAt : 2025-12-05 18:12:49.985504
 ```
 
 ## Conclusion
-This plist is a valuable source for identifying Wi Fi networks that have been removed. Even when a network is deleted from Known Networks, the SSID remains stored in this file. While I can confirm the timestamps listed in the [testing](####testing) paragraph, it is unclear how long this plist retains entries or whether the timestamps remain accurate over longer periods. I am almost certain that some networks were removed earlier than the dates currently listed, such as the `SomeHotelWiFi` entry. Further testing is needed to confirm this. 
+This plist is a valuable source for identifying Wi Fi networks that have been removed. Even when a network is deleted from Known Networks, the SSID remains stored in this file. While I can confirm the timestamps listed in the [testing](#testing) paragraph, it is unclear how long this plist retains entries or whether the timestamps remain accurate over longer periods. I am almost certain that some networks were removed earlier than the dates currently listed, such as the `SomeHotelWiFi` entry. Further testing is needed to confirm this. 
 
