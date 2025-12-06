@@ -1,7 +1,7 @@
 ---
-title: "iPhone's 'forgotten' Wi-Fi networks"
+title: "iPhone's \"forgotten\" Wi-Fi networks"
 layout: post
-categories: [iOS, wifi]
+categories: [iOS, wifi, plist]
 description: Do you remember that Wi-Fi network you removed from your iPhone's Known Networks? Your iPhone does.
 image:
   path: /assets/2025/iPhone_wifi_3/forgotten_wifi.png
@@ -11,7 +11,7 @@ image:
 When investigation the [scanning of Wi-Fi networks](https://www.mennovanveenendaal.com/posts/iPhone-Wi-Fi-Scanning/) by an iPhone I acquired a Partially Restored Filesystem Backup to search for traces of scanned Wi-Fi networks. While searching the data for the SSID of a test network, I found a reference in a file named _removed networks_. To find out more about this file, I examined it further.
 
 ## Logging
-With [UFADE](https://github.com/prosch88/UFADE) I created another Partially Restored Filesystem Backup (PRFS) from the iPhone 12 using iOS 26.1. From this backup I extracted the file *com.apple.wifi.removed-networks.plist* from `\private\var\mobile\Library\Preferences\`. Inside this [.plist](https://en.wikipedia.org/wiki/Property_list)) I found several SSIDs of networks I had previously connected my iPhone to and later removed from the Known Networks of the iPhone.
+With [UFADE](https://github.com/prosch88/UFADE) I created another Partially Restored Filesystem Backup (PRFS) from the iPhone 12 running iOS 26.1. From this backup I extracted the file *com.apple.wifi.removed-networks.plist* from `\private\var\mobile\Library\Preferences\`. Inside this [.plist](https://en.wikipedia.org/wiki/Property_list) I found several SSIDs of networks I had previously connected my iPhone to and later removed from the Known Networks of the iPhone.
 
 ## Script
 Using the iOS_sysdiagnose_forensic_scripts by [cheeky4n6monkey](https://github.com/cheeky4n6monkey/iOS_sysdiagnose_forensic_scripts/blob/master/sysdiagnose-net-ext-cache.py) as reference, I created a Python script to parse the *com.apple.wifi.removed-networks.plist* file:
@@ -127,5 +127,5 @@ RemovedAt : 2025-12-05 18:12:49.985504
 ```
 
 ## Conclusion
-This plist is a valuable source for identifying Wi Fi networks that have been removed. Even when a network is deleted from Known Networks, the SSID remains stored in this file. While I can confirm the timestamps listed in the [testing](###testing) paragraph, it is unclear how long this plist retains entries or whether the timestamps remain accurate over longer periods. I am almost certain that some networks were removed earlier than the dates currently listed, such as the `SomeHotelWiFi` entry. Further testing is needed to confirm this. 
+This plist is a valuable source for identifying Wi Fi networks that have been removed. Even when a network is deleted from Known Networks, the SSID remains stored in this file. While I can confirm the timestamps listed in the [testing](####testing) paragraph, it is unclear how long this plist retains entries or whether the timestamps remain accurate over longer periods. I am almost certain that some networks were removed earlier than the dates currently listed, such as the `SomeHotelWiFi` entry. Further testing is needed to confirm this. 
 
