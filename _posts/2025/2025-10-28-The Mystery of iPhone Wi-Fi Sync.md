@@ -2,6 +2,7 @@
 title: "The Mystery of iPhone Wi-Fi Sync"
 layout: post
 categories: [iOS, wifi]
+description: How does the iPhone know this Wi-Fis password?
 image:
   path: /assets/2025/iPhone_wifi/wifi.png
   alt: iPhone wifi
