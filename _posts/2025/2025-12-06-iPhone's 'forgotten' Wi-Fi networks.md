@@ -4,7 +4,7 @@ layout: post
 categories: [iOS, wifi, plist]
 description: Do you remember that Wi-Fi network you removed from your iPhone's Known Networks? Your iPhone does.
 image:
-  path: /assets/2025/iPhone_wifi_3/forgotten_wifi.png
+  path: /assets/2025/iphone_wifi_3/forgotten_wifi.png
   alt: iPhone wifi
 ---
 
