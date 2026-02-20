@@ -55,7 +55,8 @@ MkDir "C:\Cases\%investigation%\Kape\"
 :: Run KAPE
 echo Run KAPE
 cd "C:\Tools\KAPE\"
-.\kape.exe --tsource %disk%: --tdest C:\Cases\%investigation%\Kape --tflush --target KapeTriage --gui
+::.\kape.exe --tsource %disk%: --tdest C:\Cases\%investigation%\Kape --tflush --target KapeTriage --gui
+.\kape.exe --tsource %disk%: --tdest C:\Cases\%investigation%\Kape --tflush --target KapeTriage --msource C:\Cases\%investigation%\Kape --mdest C:\Cases\%investigation%\Analysis\Modules --mflush --module !EZParser,Hayabusa --gui
 
 :: Copy registry hives from evidence
 echo Copy registry hives
@@ -93,6 +94,8 @@ C:\Tools\RegRipper3.0-master\rip.exe -r "SYSTEM" -p timezone > "C:\Cases\%invest
 C:\Tools\RegRipper3.0-master\rip.exe -r "SOFTWARE" -p profilelist > "C:\Cases\%investigation%\Analysis\Host_Information\Profilelist.txt"
 :: Network Information
 C:\Tools\RegRipper3.0-master\rip.exe -r "SYSTEM" -p nic2 > "C:\Cases\%investigation%\Analysis\Host_Information\NetworkInformation.txt"
+:: Shutdown time
+C:\Tools\RegRipper3.0-master\rip.exe -r "SYSTEM" -p shutdown > "C:\Cases\%investigation%\Analysis\Host_Information\ShutdownTime.txt
 
 :: MFTECmd
 echo Run MFTECmd to parse MasterFileTable
@@ -129,9 +132,15 @@ cd "C:\Tools\EZTools"
 LECmd.exe -d "C:\Cases\%investigation%\Kape\%disk%\Users\%useraccount%\AppData\Roaming\Microsoft\Windows\Recent" --csv "C:\Cases\%investigation%\Analysis\User_Activities\Link_Files"
 
 :: JLECmd
-echo Run JLECmd to parse Jump lists
+echo Run LECmd to parse Jump lists
 cd "C:\Tools\EZTools"
 JLECmd.exe -d "C:\Cases\%investigation%\Kape\%disk%\Users\%useraccount%\AppData\Roaming\Microsoft\Windows\Recent" --csv "C:\Cases\%investigation%\Analysis\User_Activities\Jump_Lists"
+
+:: Copy history of executed commands
+echo Copy history of executed commands
+cd /d "C:\"
+xcopy "C:\Cases\%investigation%\Kape\%disk%\Users\%useraccount%\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadline\ConsoleHost_history.txt" "C:\Cases\%investigation%\Analysis\User_Activities\"  /H
+
 
 echo Done!
 set /p=Hit ENTER to continue...
@@ -143,4 +152,4 @@ While this batch script does the job well, I plan to convert it to PowerShell fo
 
 This script saves time before the triage and ensures consistency across forensic investigations. If you regularly analyze Windows disk images, a setup like this can significantly speed up your initial evidence collection.
 
-Edit: Extended script to o.a. also acquire device information using RegRipper.
+Edit: Extended script to o.a. use Kape Modules and acquire device information using RegRipper.

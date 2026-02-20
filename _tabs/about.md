@@ -3,7 +3,7 @@
 icon: fas fa-info-circle
 order: 4
 ---
-I'm Menno van Veenendaal, a Cyber Security consultant based in the Netherlands. When I'm not working, I enjoy working out, automating things around the house, or perfecting my Neapolitan pizza recipe.
+I'm Menno van Veenendaal, a Cyber Security Specialist based in the Netherlands. When I'm not working, I enjoy working out, automating things around the house, or perfecting my Neapolitan pizza recipe.
 
 ## Experience
 With a background in law enforcement, education in software programming and Cyber Security, and experience as a SOC analyst for a major Cyber Security company and the Royal Dutch Army, I've gained a broad range of knowledge in the Cyber Security field, including incident response.
