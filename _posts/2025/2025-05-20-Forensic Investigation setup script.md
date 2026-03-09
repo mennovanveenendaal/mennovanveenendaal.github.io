@@ -37,6 +37,7 @@ MkDir "C:\Cases\%investigation%\Analysis\User_Activities\Link_Files\"
 MkDir "C:\Cases\%investigation%\Analysis\User_Activities\Jump_Lists\"
 MkDir "C:\Cases\%investigation%\Analysis\Host_Information\"
 MkDir "C:\Cases\%investigation%\Analysis\EventLogs\"
+MkDir "C:\Cases\%investigation%\Analysis\EventLogs\Hayabusa\"
 MkDir "C:\Cases\%investigation%\Analysis\Execution\"
 MkDir "C:\Cases\%investigation%\Analysis\Execution\Amcache\"
 MkDir "C:\Cases\%investigation%\Analysis\Execution\Prefetch\"
@@ -55,8 +56,8 @@ MkDir "C:\Cases\%investigation%\Kape\"
 :: Run KAPE
 echo Run KAPE
 cd "C:\Tools\KAPE\"
-::.\kape.exe --tsource %disk%: --tdest C:\Cases\%investigation%\Kape --tflush --target KapeTriage --gui
-.\kape.exe --tsource %disk%: --tdest C:\Cases\%investigation%\Kape --tflush --target KapeTriage --msource C:\Cases\%investigation%\Kape --mdest C:\Cases\%investigation%\Analysis\Modules --mflush --module !EZParser,Hayabusa --gui
+.\kape.exe --tsource %disk%: --tdest C:\Cases\%investigation%\Kape --tflush --target KapeTriage --gui
+::.\kape.exe --tsource %disk%: --tdest C:\Cases\%investigation%\Kape --tflush --target KapeTriage --msource C:\Cases\%investigation%\Kape --mdest C:\Cases\%investigation%\Analysis\Modules --mflush --module !EZParser --gui
 
 :: Copy registry hives from evidence
 echo Copy registry hives
@@ -121,6 +122,11 @@ echo Run EvtxECmd
 cd "C:\Tools\EZTools\EvtxeCmd"
 EvtxECmd.exe -d "C:\Cases\%investigation%\Kape\%disk%\Windows\System32\winevt\logs" --csv "C:\Cases\%investigation%\Analysis\EventLogs"
 
+::Hayabusa
+echo Run Hayabusa
+cd "C:\Tools\hayabusa"
+hayabusa.exe csv-timeline -m med --RFC-3339 --quiet -U -d "C:\Cases\%investigation%\Kape\%disk%\Windows\System32\winevt\logs" -o "C:\Cases\%investigation%\Analysis\EventLogs\Hayabusa\Hayabusa_timeline.csv" --no-wizard > "C:\Cases\%investigation%\Analysis\EventLogs\Hayabusa\Hayabusa_output.txt"
+
 ::WxTCmd
 echo Run WxTCmd to parse ActivitiesCache
 cd "C:\Tools\EZTools"
@@ -153,3 +159,4 @@ While this batch script does the job well, I plan to convert it to PowerShell fo
 This script saves time before the triage and ensures consistency across forensic investigations. If you regularly analyze Windows disk images, a setup like this can significantly speed up your initial evidence collection.
 
 Edit: Extended script to o.a. use Kape Modules and acquire device information using RegRipper.
+Edit: Moved Hayabusa from Kape to Hayabusa.exe
