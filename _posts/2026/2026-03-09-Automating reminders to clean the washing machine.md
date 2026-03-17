@@ -2,7 +2,7 @@
 title: "Automating reminders to clean the washing machine"
 layout: post
 categories: [Home Automation, Automation]
-description: Automating reminders to clean the washing machine. 
+description: Automating reminders to clean the washing machine with Home Assistant. 
 image:
   path: /assets/2026/washingmachine/washingmachine.png
   alt: Cleaning washing machine
