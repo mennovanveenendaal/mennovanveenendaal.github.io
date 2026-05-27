@@ -159,4 +159,5 @@ While this batch script does the job well, I plan to convert it to PowerShell fo
 This script saves time before the triage and ensures consistency across forensic investigations. If you regularly analyze Windows disk images, a setup like this can significantly speed up your initial evidence collection.
 
 Edit: Extended script to o.a. use Kape Modules and acquire device information using RegRipper.
+
 Edit: Moved Hayabusa from Kape to Hayabusa.exe
