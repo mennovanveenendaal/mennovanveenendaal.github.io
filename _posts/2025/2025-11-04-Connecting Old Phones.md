@@ -1,7 +1,7 @@
 ---
 title: "Connecting Old Phones"
 layout: post
-categories: [Proxmox, Building]
+categories: [Homelab, Building]
 description: Reviving an old T65 Rembrandt rotary phone
 image:
   path: /assets/2025/phones/phone.png

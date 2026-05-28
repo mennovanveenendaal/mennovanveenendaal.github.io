@@ -1,7 +1,7 @@
 ---
 title: Avoiding Future VPN Disruptions; IP Monitoring with Python
 layout: post
-categories: [Scripting, Python]
+categories: [Homelab, Scripting, Python]
 image:
   path: /assets/2024/vpn/vpn.png
 ---
