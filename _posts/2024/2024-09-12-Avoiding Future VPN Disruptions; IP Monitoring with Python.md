@@ -1,7 +1,7 @@
 ---
 title: Avoiding Future VPN Disruptions; IP Monitoring with Python
 layout: post
-categories: [Homelab, Scripting, Python]
+categories: [Homelab, Scripting]
 image:
   path: /assets/2024/vpn/vpn.png
 ---
@@ -29,6 +29,7 @@ def get_wanIP():
 	response = requests.get('https://api.ipify.org').text
 	return response
 ```
+
 With this working, I wrote a script that compared the current WAN IP with the one stored in a SQL database. If the IP changed, the script would log the new IP address and send me a notification via Telegram. Here’s the Python code that checks the current IP:
 `IP_Processing.py`
 ```python
@@ -53,6 +54,8 @@ def isCurrentIPChanged() -> bool:
 	elif publicIP == latestKnowIP:
 		return False
 ```
+{: .scroll}
+
 The database management is handled with SQLite. Here's the code for inserting and retrieving IP addresses from the database:
 `IPDatabase.py`
 ```python
@@ -108,6 +111,8 @@ def get_latestIPAddress():
         return "1.1.1.1"
     conn.close()
 ```
+{: .scroll}
+
 The main script  for checking if the WAN IP has changed. If it has, it logs the new IP address and sends a notification:
 ```python
 from datetime import datetime
@@ -136,6 +141,7 @@ def main():
      
 if __name__ == "__main__": 
 ```
+{: .scroll}
 
 ### Automated Notifications via Telegram
 
@@ -190,6 +196,7 @@ def main() -> None:
 if __name__ == "__main__":
     main()
 ```
+{: .scroll}
 
 ### Running the Telegram-bot script as a service
 To make the Telegram bot script run continuously and respond to requests, I needed to set it up as a systemd service. The idea was that the script should always be active and ready to notify me whenever I requested the current WAN IP address. After some research, I found a great [guide](https://github.com/thagrol/Guides/blob/main/boot.pdf) on running a program at startup. The relevant section for my setup was "Installing a Service Per User."

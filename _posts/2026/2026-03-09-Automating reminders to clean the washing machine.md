@@ -220,6 +220,7 @@ cards:
             icon: ""
             icon_color: ""
 ```
+{: .scroll}
 
 ![View](/assets/2026/washingmachine/view.png)
 _Fig.1 View_

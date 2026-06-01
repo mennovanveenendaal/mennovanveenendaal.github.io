@@ -86,21 +86,7 @@ cd "C:\Cases\%investigation%\Analysis\Registry\"
 :: Hostname
 C:\Tools\RegRipper3.0-master\rip.exe -r "SYSTEM" -p compname | findstr "ComputerName\ \ \ \ =" | findstr "ComputerName" > "C:\Cases\%investigation%\Analysis\Host_Information\Hostname.txt"
 :: Windows version
-C:\Tools\RegRipper3.0-master\rip.exe -r "SOFTWARE" -p winver > "C:\Cases\%investigation%\Analysis\Host_Information\WindowsVersion.txt"
-:: Defender options
-C:\Tools\RegRipper3.0-master\rip.exe -r "SOFTWARE" -p defender > "C:\Cases\%investigation%\Analysis\Host_Information\DefenderSettings.txt"
-:: Timezone
-C:\Tools\RegRipper3.0-master\rip.exe -r "SYSTEM" -p timezone > "C:\Cases\%investigation%\Analysis\Host_Information\Timezone.txt"
-:: Profile List
-C:\Tools\RegRipper3.0-master\rip.exe -r "SOFTWARE" -p profilelist > "C:\Cases\%investigation%\Analysis\Host_Information\Profilelist.txt"
-:: Network Information
-C:\Tools\RegRipper3.0-master\rip.exe -r "SYSTEM" -p nic2 > "C:\Cases\%investigation%\Analysis\Host_Information\NetworkInformation.txt"
-:: Shutdown time
-C:\Tools\RegRipper3.0-master\rip.exe -r "SYSTEM" -p shutdown > "C:\Cases\%investigation%\Analysis\Host_Information\ShutdownTime.txt
 
-:: MFTECmd
-echo Run MFTECmd to parse MasterFileTable
-cd "C:\Tools\EZTools\"
 MFTECmd.exe -f "C:\Cases\%investigation%\Kape\%disk%\$MFT" --csv "C:\Cases\%investigation%\Analysis\NTFS\MFT" --csvf MFT.csv
 echo Run MFTECmd to parse Journal
 MFTECmd.exe -f "C:\Cases\%investigation%\Kape\%disk%\$Extend\$J" -m "C:\Cases\%investigation%\Kape\%disk%\$MFT" --csv "C:\Cases\%investigation%\Analysis\NTFS"
@@ -152,6 +138,7 @@ echo Done!
 set /p=Hit ENTER to continue...
 timeout 5 > NUL
 ```
+{: .scroll}
 
 ## //TODO
 While this batch script does the job well, I plan to convert it to PowerShell for better readability and control. I would also like to automate the image mounting for a fully automated workflow.

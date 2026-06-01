@@ -218,6 +218,7 @@ And following this, there where 528 more enties with the same information:
 
 [...]
 ```
+{: .scroll}
 
 In the above snippet the details of 5 files are listed. 
 - post.html

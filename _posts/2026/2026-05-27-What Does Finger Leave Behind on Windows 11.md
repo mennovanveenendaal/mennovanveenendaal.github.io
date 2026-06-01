@@ -18,7 +18,7 @@ Using Finger is straightforward as `finger user@host`, e.g. `finger menno@12.34.
 
 Finger can also be used in alternative ways, such as requesting the [weather](https://graph.no/finger/) via graph.no, a project of [falkp](https://falkp.no/blog/html/2016/05/31/weather_via_finger_an_update.html).
 
-```cmd
+```shell
 > finger
 [...]
 > finger utrecht@graph.no
@@ -49,7 +49,7 @@ Legend right axis:  | Rain    ! Sleet       * Snow
 
 To create artifacts, I executed Finger eleven times in a Windows 11 VM. First just the finger command itself without arguments, then with the `--h` parameter, successful remote queries against graph.no, and finally a part of a [ClickFix attack command](https://www.bleepingcomputer.com/news/security/decades-old-finger-protocol-abused-in-clickfix-malware-attacks/).
 
-```cmd
+```shell
 > finger
 
 Displays information about a user on a specified system running the

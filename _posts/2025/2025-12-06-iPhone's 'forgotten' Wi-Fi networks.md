@@ -53,6 +53,8 @@ with open(options.inputfile, 'rb', ) as fp:
                 else:
                     print(item + " : " + str(list1))
 ```
+{: .scroll}
+
 ```shell
 > python3 removed-wifi-plist.py -i com.apple.wifi.removed-networks.plist
 

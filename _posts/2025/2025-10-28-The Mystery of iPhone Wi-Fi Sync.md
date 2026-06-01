@@ -111,6 +111,7 @@ Subsequent log entries showed the network being added to the list of known netwo
 2025-10-04 14:14:27.478223+0200 0x1acc     Default     0x0                  54     0    wifid: (WiFiPolicy) [com.apple.WiFiPolicy:] WFMacRandomisation :WiFiManagerAddPrivateMacNetwork:Adding network to private mac cache with reason <11>  existingIndex -1, insertIndex 0
 2025-10-04 14:14:27.478225+0200 0x1acc     Default     0x0                  54     0    wifid: (WiFiPolicy) [com.apple.WiFiPolicy:] WiFiManagerSetPrivateMacNetworksCache: Updated 34 private mac networks in the cache
 ```
+{: .scroll}
 
 Finally, **34** privateMac networks where updated in the cache, one more then 10 minutes before.
 

@@ -9,9 +9,14 @@
 ';
 
 /* append your custom style below */
-$max-lines: 10; // max lines of code to be scrolled
+$max-lines: 25; // max lines of code to be scrolled
 
-.highlight {
+div.scroll > .highlight  {
     overflow-y: auto;
     max-height: $max-lines * 1em;
+}
+
+pre, code {
+  white-space: pre-wrap; /* Wraps long lines */
+  word-wrap: break-word;
 }
