@@ -260,6 +260,6 @@ These timestamps match the time of the `ps1` script, where the first file would 
 This is a bit circumstantial to say that these files where indeed send by this script.
 
 ## Conclusion
-This proof of concept demonstrates that file contents can be exfiltrated through successive Finger requests, even though the protocol was never designed for file transfer. And with the previous security [warnings]([https://datatracker.ietf.org/doc/html/rfc1288#section-3.2](https://datatracker.ietf.org/doc/html/rfc1288#section-3.2)) in mind it could very well be that Finger is outside of all monitoring. 
+This proof of concept demonstrates that file contents can be exfiltrated through successive Finger requests, even though the protocol was never designed for file transfer. And with the previous security [warnings](https://datatracker.ietf.org/doc/html/rfc1288#section-3.2) in mind it could very well be that Finger is outside of all monitoring. 
 
 While multiple artifacts demonstrate the execution of both PowerShell and `finger.exe`, proving exactly which files were transmitted remains significantly more difficult. Without network captures, EDR telemetry, PowerShell logging, or similar supporting evidence the investigation relies largely on circumstantial artifacts and timeline correlation.
