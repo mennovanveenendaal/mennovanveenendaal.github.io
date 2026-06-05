@@ -221,3 +221,8 @@ it is giving away.
 The protocol can be used without logging, so no historical data can be investigated to see historical queries. If the protocol would be misused, not al traces could be recoverable.
 
 Finger execution does leave identifiable traces on a Windows 11 system. Multiple features on Windows can be used to find traces of the use of Finger. Some of the features record more than others, and none where found that recorded the complete command. Artifacts such as Prefetch, SRUM, and Defender logs can help investigators confirm execution and reconstruct partial activity timelines.
+
+Edit 01 June 2026:
+The Google query itself is pretty specific, but I still think it’s cool to see my own blog post showing up in the search results and AI overview.
+![Google results](/assets/2026/finger/google.png)
+_Fig.2 Google results_
