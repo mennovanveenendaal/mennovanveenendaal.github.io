@@ -1,5 +1,5 @@
 ---
-title: "Fixing the Z-Wave crash"
+title: "Fixing the Z-Wave stick crash"
 layout: post
 categories: [Home Automation, Z-Wave]
 image:

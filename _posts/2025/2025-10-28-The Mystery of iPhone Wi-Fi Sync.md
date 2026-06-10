@@ -1,5 +1,5 @@
 ---
-title: "The Mystery of iPhone Wi-Fi Sync"
+title: "The Mystery of iPhone Wi-Fi sync"
 layout: post
 categories: [iOS, wifi]
 description: How does the iPhone know this Wi-Fis password?

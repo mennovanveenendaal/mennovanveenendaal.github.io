@@ -1,5 +1,5 @@
 ---
-title: Old Routers, New Risks
+title: "Old routers, new risks"
 layout: post
 categories: [Hardware hacking, investigating] 
 image:

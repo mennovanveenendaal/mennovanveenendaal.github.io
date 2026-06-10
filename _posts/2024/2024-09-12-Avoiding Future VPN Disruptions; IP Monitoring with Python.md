@@ -1,5 +1,5 @@
 ---
-title: Avoiding Future VPN Disruptions; IP Monitoring with Python
+title: "Avoiding future VPN disruptions; IP monitoring with Python"
 layout: post
 categories: [Homelab, Scripting]
 image:

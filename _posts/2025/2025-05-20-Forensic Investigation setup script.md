@@ -1,5 +1,5 @@
 ---
-title: "Forensic Investigation setup script"
+title: "Forensic investigation setup script"
 layout: post
 categories: [Scripting, Forensics]
 image:

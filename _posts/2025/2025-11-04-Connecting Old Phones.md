@@ -1,5 +1,5 @@
 ---
-title: "Connecting Old Phones"
+title: "Connecting old phones"
 layout: post
 categories: [Homelab, Building]
 description: Reviving an old T65 Rembrandt rotary phone

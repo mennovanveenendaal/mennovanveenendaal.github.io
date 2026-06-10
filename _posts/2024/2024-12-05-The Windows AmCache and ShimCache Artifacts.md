@@ -1,5 +1,5 @@
 ---
-title: "The Windows AmCache and ShimCache Artifacts"
+title: "The Windows AmCache and ShimCache artifacts"
 layout: post
 categories: [Windows, Registry]
 image:

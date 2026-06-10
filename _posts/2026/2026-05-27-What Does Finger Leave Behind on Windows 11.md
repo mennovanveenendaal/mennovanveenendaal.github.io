@@ -1,5 +1,5 @@
 ---
-title: "What Does Finger Leave Behind on Windows 11?"
+title: "What does Finger leave behind on Windows 11?"
 layout: post
 categories: [Windows, Registry]
 description: What artifacts does the Finger protocol leave behind on a Windows 11 system?
@@ -8,7 +8,7 @@ image:
   alt: finger
 ---
 
-The [finger protocol](https://datatracker.ietf.org/doc/html/rfc1288) is an interface to a Remote User Information Program. Finger was developed in 1971 to request information about users on a network. It uses port 79 TCP and data must be in ASCII. Although it is an older and less commonly used protocol, it is still present in current versions of Windows 11.
+The [Finger protocol](https://datatracker.ietf.org/doc/html/rfc1288) is an interface to a Remote User Information Program. Finger was developed in 1971 to request information about users on a network. It uses port 79 TCP and data must be in ASCII. Although it is an older and less commonly used protocol, it is still present in current versions of Windows 11.
 
 Since this protocol is somewhat older and lesser known, I wanted to investigate what traces an execution of this protocol would leave on a Windows 11 system.
 
@@ -18,7 +18,7 @@ Using Finger is straightforward as `finger user@host`, e.g. `finger menno@12.34.
 
 Finger can also be used in alternative ways, such as requesting the [weather](https://graph.no/finger/) via graph.no, a project of [falkp](https://falkp.no/blog/html/2016/05/31/weather_via_finger_an_update.html).
 
-```shell
+```cmd
 > finger
 [...]
 > finger utrecht@graph.no
@@ -49,7 +49,7 @@ Legend right axis:  | Rain    ! Sleet       * Snow
 
 To create artifacts, I executed Finger eleven times in a Windows 11 VM. First just the finger command itself without arguments, then with the `--h` parameter, successful remote queries against graph.no, and finally a part of a [ClickFix attack command](https://www.bleepingcomputer.com/news/security/decades-old-finger-protocol-abused-in-clickfix-malware-attacks/).
 
-```shell
+```cmd
 > finger
 
 Displays information about a user on a specified system running the
@@ -221,8 +221,3 @@ it is giving away.
 The protocol can be used without logging, so no historical data can be investigated to see historical queries. If the protocol would be misused, not al traces could be recoverable.
 
 Finger execution does leave identifiable traces on a Windows 11 system. Multiple features on Windows can be used to find traces of the use of Finger. Some of the features record more than others, and none where found that recorded the complete command. Artifacts such as Prefetch, SRUM, and Defender logs can help investigators confirm execution and reconstruct partial activity timelines.
-
-Edit 01 June 2026:
-The Google query itself is pretty specific, but I still think it’s cool to see my own blog post showing up in the search results and AI overview.
-![Google results](/assets/2026/finger/google.png)
-_Fig.2 Google results_

@@ -1,5 +1,5 @@
 ---
-title: "Investigating Data Exfiltration via Dropbox"
+title: "Investigating data exfiltration via dropBox"
 layout: post
 categories: [Windows, Registry]
 description: Investigating Data Exfiltration via the browser and Dropbox

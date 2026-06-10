@@ -1,5 +1,5 @@
 ---
-title: "Windows Registry 101: A Guide for Forensic Investigations"
+title: "Windows Registry 101: A Guide for forensic Investigations"
 layout: post
 categories: [Windows, Registry]
 image:

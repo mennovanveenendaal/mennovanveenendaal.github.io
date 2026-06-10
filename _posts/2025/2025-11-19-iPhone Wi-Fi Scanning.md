@@ -1,5 +1,5 @@
 ---
-title: "iPhone Wi-Fi Scanning"
+title: "iPhone Wi-Fi scanning"
 layout: post
 categories: [iOS, wifi]
 description: iPhone's are silently recording nearby Wi-Fi information

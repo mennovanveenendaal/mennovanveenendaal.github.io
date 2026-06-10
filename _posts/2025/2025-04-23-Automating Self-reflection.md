@@ -1,5 +1,5 @@
 ---
-title: "Automating Self-reflection"
+title: "Automating self-reflection"
 layout: post
 categories: [Home Automation, Self-reflection]
 description: Automating Self-reflection using Home Assistant 

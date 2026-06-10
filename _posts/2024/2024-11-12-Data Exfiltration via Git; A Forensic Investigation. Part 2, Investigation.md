@@ -1,5 +1,5 @@
 ---
-title: "Data Exfiltration via Git: A Forensic Investigation. Part 2, Investigation"
+title: "Data exfiltration via Git; A forensic investigation. Part 2, Investigation"
 layout: post
 categories: [Windows, Registry]
 image:
