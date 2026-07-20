@@ -79,7 +79,7 @@ Shortly after the play command is processed, `bluetoothd` records the establishm
 2026-06-29 16:19:07.033171+0200 0x3caa5    Default     0x0                  97     0    bluetoothd: [com.apple.bluetooth:Server.A2DP] Starting A2DP audio streaming to device B8:81:FA:11:FF:AB
 ```
 
-During audio streaming, the AirPods continue to report the active listening mode as `ANC Transparency`.
+During audio streaming, the AirPods ~~continue to report the active listening mode as `ANC Transparency`.~~ listening modus is logged as `LsnM Transparency`.
 
 ```
 2026-06-29 16:19:07.047049+0200 0x3cc4b    Default     0x0                  97     0    bluetoothd: (CoreUtils) [com.apple.bluetooth:CBDaemonServer] Monitor Device Found: CBDevice F4CF7039-6E99-F1D6-DF03-77A730FB317B, BDA <private>, Nm <private> , Md AirPodsPro1,1, PID 0x200E (AirPodsPro1,1), PrNm AirPods Pro, VID 0x004C, VS 1, DsFl 0xA08000 < WxStatus Connections Pairing >, DvF 0x5081D80407F < AACP MagicPaired ShareAudio SoftwareVolume Tipi PSE AudioOwner ClassicPaired SpatialAudio AdvancedAppleAudio ANC Transparency SpatialAudioAllowed UTPConnected SmartRouting Connectable >, DvT Headphones, RSSI -38, CnS 0x980019 < HFP AVRCP A2DP AACP GATT ACL >, SupS 0x180019 < HFP AVRCP A2DP AACP GATT >, AStS A2DP, Freq 2.4, Ch 37, Battery L -100% R -95% C -97%, ClkH L NoiseManagement R NoiseManagement, ECC 2, MCCp 1, MCC 1, CVer'1.4.1', DbTp C Basic, GAPA 0x1 < Real >, FV '6F21', LsnM Transparency, LsMC 0x6 < ANC Transparency >, BTv 5.0, MicM Auto, Plcm P InEar S InEar M Enabled, Prim Right, modU A2084, SN '[...]', SN Left'[...]', SN Right '[...]', srMd Enabled, spAM ContentDriven, AdTsMC <[...]>, AMfD <4c 00 07 19 01 0e 20 0b a9 <…>
@@ -93,6 +93,6 @@ During audio streaming, the AirPods continue to report the active listening mode
 - Part 5. Media play event
 - [Part 6. Media pause events](https://www.mennovanveenendaal.com/posts/AirPods-and-the-Apple-Unified-Log.-Part-6.-Media-pausing-event/)
 - [Part 7. Detecting AirPods removed from the ears](https://www.mennovanveenendaal.com/posts/AirPods-and-the-Apple-Unified-Log.-Part-7.-Detecting-AirPods-removed-from-the-ears/)
-- [Part 8. Detecting AirPods returned to the Charging Case](https://www.mennovanveenendaal.com/posts/)AirPods-and-the-Apple-Unified-Log.-Part-8.-Detecting-AirPods-returned-to-the-Charging-Case/
+- [Part 8. Detecting AirPods returned to the Charging Case](https://www.mennovanveenendaal.com/posts/AirPods-and-the-Apple-Unified-Log.-Part-8.-Detecting-AirPods-returned-to-the-Charging-Case/)
 - [Part 9. Closing the Charging Case](https://www.mennovanveenendaal.com/posts/AirPods-and-the-Apple-Unified-Log.-Part-9.-Closing-the-Charging-Case/)
 - [Part 10. Conclusion](https://www.mennovanveenendaal.com/posts/AirPods-and-the-Apple-Unified-Log.-Part-10.-Conclusion/)

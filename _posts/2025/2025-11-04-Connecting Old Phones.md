@@ -32,5 +32,8 @@ To make calls I enabled the pulse dial function in the HT801 (Port Settings > FX
 ## Ring
 The phones worked and the logs showed that calls were being placed. However the phones did not ring when receiving a call. After a long search I discovered that I needed to modify the [wiring]( https://www.matilo.eu/technish/oude-telefoon-aansluiten/) to activate the internal bells. The wire for the extra bell (yellow) needed to be connected to the blue wire. I made this connection in the socket to avoid damaging the phones or their plugs.
 
+![Connecting](/assets/2025/phones/short.png)
+_Fig.1 Connected wires [https://www.matilo.eu/technish/oude-telefoon-aansluiten/](https://www.matilo.eu/technish/oude-telefoon-aansluiten/)_
+
 ## Final call
 With this final step the internal phone system worked completely. I can now make and receive calls between the phones and Home Assistant, giving a decorative object a new functional purpose.

@@ -17,7 +17,8 @@ Prior to opening the Charging Case, no AirPods related log entries were observed
 2026-06-29 16:19:01.591564+0200 0x3cba0    Default     0x0                  1539   0    audioaccessoryd: (CoreUtils) [com.apple.AudioAccessory:SR3PRoutingDaemon] SR3P Pairing found device CBDevice F4CF7039-6E99-F1D6-DF03-77A730FB317B, BDA <private>, Nm <private> , Md AirPodsPro1,1, PID 0x200E (AirPodsPro1,1), PrNm AirPods Pro, VID 0x004C, VS 1, DsFl 0x40808000 < WxStatus Pairing BLEAdvertisementData >, DvF 0x5001D80403F < AACP MagicPaired ShareAudio SoftwareVolume Tipi PSE ClassicPaired SpatialAudio AdvancedAppleAudio ANC Transparency SpatialAudioAllowed SmartRouting Connectable >, DvT Headphones, RSSI -37, SupS 0x180019 < HFP AVRCP A2DP AACP GATT >, AStS Idle, Freq 2.4, Ch 38, ClkH L NoiseManagement R NoiseManagement, ECC 2, MCCp 1, MCC 1, CVer'1.4.1', DbTp C Basic, GAPA 0x1 < Real >, FV '6F21', LsnM Normal, LsMC 0x6 < ANC Transparency >, BTv 5.0, MicM Auto, Plcm M Enabled, Prim Unknown, modU A2084, SN 'H6RFJ7190C6L', SN Left'H6RFK5050C6K', SN Right 'H6VFKFXY0C6J', srMd Enabled, spAM ContentDriven, AdTsMC <30606500471>, AMfD <4c 00 07 19 01 0e 20 04 f9 99 31 00 00 00 df ff 61 ca bf d7 70 ff 0b 00 10 b1 13 a9 e3>, ppPI 0x200E (AirPodsPro1,1), ppST 0x01 (WxSta<…>
 ```
 
-The log reports the active noise control mode as Transparency (`ANC Transparency`).
+~~The log reports the active noise control mode as Transparency (`ANC Transparency`).~~
+After diving deeper into the AUL I found that the current listening mode is recorded as `LsnM` or `Lsn: md`. In this log the listening mode is logged as `Normal`.
 
 ```
 2026-06-29 16:19:01.591636+0200 0x3cb9d    Default     0x0                  1539   0    audioaccessoryd: (CoreUtils) [com.apple.AudioAccessory:AANearbyDeviceManagerDaemon] Creating os transaction for nearby devices.
