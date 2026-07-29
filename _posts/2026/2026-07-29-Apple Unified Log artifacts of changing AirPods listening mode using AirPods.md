@@ -10,7 +10,7 @@ image:
 
 AirPods listening modes can be changed either from the AirPods themselves or from Control Center on a paired iPhone. Although both methods produce the same result from a user perspective, they may generate different artifacts in the Apple Unified Log.
 
-This article examines the logging generated when the listening mode is changed from the AirPods. A companion article examines the same action performed directly on the iPhone.
+This article examines the logging generated when the listening mode is changed from the AirPods. A companion article examines the same action performed directly [on the iPhone](https://www.mennovanveenendaal.com/posts/Apple-Unified-Log-artifacts-of-changing-AirPods-listening-mode-using-iPhone/).
 
 ## Test procedure
 To generate the logging I performed the following actions using a AirPods Pro with firmware 6F21 and a paired iPhone 12 using iOS 26.5. No audio was playing while the listening modes were changed.
@@ -140,9 +140,9 @@ After approximately 4 seconds the`SpringBoard` process records an update in the 
 ## Conclusion
 When the AirPods are used to switch between the listening modes, the first observable event is recorded by `bluetoothd`. This event logs the receipt of a listening mode control command from the paired AirPods. The subsequent records from `audiomxd` and `audioaccessoryd` document the propagation of the new state through the audio subsystem.
 
-When comparing this to the logs found in AUL when the mode is [changed using the iPhone](), the biggest difference is that the `SpringBoard` process, `MediaControls` / `Volume` subsystem logs didn't log setting changed the listening mode, but just logged `update`:
+When comparing this to the logs found in AUL when the mode is [changed using the iPhone](https://www.mennovanveenendaal.com/posts/Apple-Unified-Log-artifacts-of-changing-AirPods-listening-mode-using-iPhone/), the biggest difference is that the `SpringBoard` process, `MediaControls` / `Volume` subsystem logs didn't log setting changed the listening mode, but just logged `update`:
 
-|Action|First process|First evidence|Interpretation|
+|Changed via|First process|First evidence|Interpretation|
 |---|---|---|---|
-|Changed via iPhone|`SpringBoard`|`MRUListeningModeController`|Request originated from Control Center|
-|Changed via AirPods|`bluetoothd`|`Received Listen mode (control cmd 0x0D)`|Request originated from the AirPods|
+|iPhone|`SpringBoard`|`MRUListeningModeController`|Request originated from Control Center|
+|AirPods|`bluetoothd`|`Received Listen mode (control cmd 0x0D)`|Request originated from the AirPods|
