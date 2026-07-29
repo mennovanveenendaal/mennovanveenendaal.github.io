@@ -16,7 +16,7 @@ div.scroll > .highlight  {
     max-height: $max-lines * 1em;
 }
 
-/* pre, code { */
-/*   white-space: pre-wrap; /* Wraps long lines */
-/*   word-wrap: break-word; */
-/* } */
+pre, code { 
+   white-space: pre-wrap; /* Wraps long lines */
+   word-wrap: break-word; 
+}
